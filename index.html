@@ -3325,11 +3325,24 @@
       justify-content: space-between;
       align-items: center;
       z-index: 998;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    .mobile-booking-bar.is-hidden {
+      transform: translateY(115%);
+      opacity: 0;
+      pointer-events: none;
     }
 
     @media (min-width: 1024px) {
       .mobile-booking-bar {
         display: none;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      body {
+        padding-bottom: 72px;
       }
     }
 
@@ -3694,11 +3707,15 @@
       <div class="hero-bg-wrap">
         <img 
           src="assets/images/hero_bg.jpg" 
+          srcset="assets/images/hero_bg-480w.webp 480w, assets/images/hero_bg-800w.webp 800w, assets/images/hero_bg-1200w.webp 1200w, assets/images/hero_bg-1600w.webp 1600w, assets/images/hero_bg.jpg 1920w"
+          sizes="100vw"
           alt="Black and white private tattoo atelier in Christchurch with focused task lighting" 
           class="hero-bg-img"
           width="1920" 
           height="1080"
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         >
         <div class="hero-overlay"></div>
         <div class="hero-grain" aria-hidden="true"></div>
@@ -3817,10 +3834,13 @@
             <div class="intro-img-frame">
               <img 
                 src="assets/images/gloved_hands_piercing.jpg" 
+                srcset="assets/images/gloved_hands_piercing-480w.webp 480w, assets/images/gloved_hands_piercing-800w.webp 800w, assets/images/gloved_hands_piercing.jpg 1200w"
+                sizes="(max-width: 768px) 390px, 560px"
                 alt="Gloved hands performing precision ear piercing with medical clamp and titanium stud" 
                 width="1200" 
                 height="1600" 
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               >
             </div>
             <div class="intro-img-caption">
@@ -3867,11 +3887,14 @@
             <div class="discipline-bg-wrap">
               <img 
                 src="assets/images/discipline_tattoo.jpg" 
+                srcset="assets/images/discipline_tattoo-480w.webp 480w, assets/images/discipline_tattoo-800w.webp 800w, assets/images/discipline_tattoo-1200w.webp 1200w, assets/images/discipline_tattoo.jpg 1200w"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Artist applying custom blackwork tattoo with precision machine" 
                 class="discipline-bg-img"
                 width="1200"
                 height="900"
                 loading="lazy"
+                decoding="async"
               >
             </div>
             <div class="discipline-overlay"></div>
@@ -3896,11 +3919,14 @@
             <div class="discipline-bg-wrap">
               <img 
                 src="assets/images/discipline_piercing.jpg" 
+                srcset="assets/images/discipline_piercing-480w.webp 480w, assets/images/discipline_piercing-800w.webp 800w, assets/images/discipline_piercing-1200w.webp 1200w, assets/images/discipline_piercing.jpg 1200w"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Curated ear piercing with ASTM F-136 titanium jewellery" 
                 class="discipline-bg-img"
                 width="1200"
                 height="900"
                 loading="lazy"
+                decoding="async"
               >
             </div>
             <div class="discipline-overlay"></div>
@@ -3948,7 +3974,7 @@
 
           <!-- Tile 1: Fine line -->
           <div class="work-tile" data-index="0">
-            <img src="assets/images/work/work_tattoo_1.jpg" alt="Fine line floral botanical tattoo on forearm" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_tattoo_1.jpg" srcset="assets/images/work/work_tattoo_1-480w.webp 480w, assets/images/work/work_tattoo_1-800w.webp 800w, assets/images/work/work_tattoo_1.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Fine line floral botanical tattoo on forearm" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -3959,7 +3985,7 @@
 
           <!-- Tile 2: Blackwork -->
           <div class="work-tile" data-index="1">
-            <img src="assets/images/work/work_tattoo_2.jpg" alt="Geometric blackwork mandala tattoo on arm" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_tattoo_2.jpg" srcset="assets/images/work/work_tattoo_2-480w.webp 480w, assets/images/work/work_tattoo_2-800w.webp 800w, assets/images/work/work_tattoo_2.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Geometric blackwork mandala tattoo on arm" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -3970,7 +3996,7 @@
 
           <!-- Tile 3: Japanese -->
           <div class="work-tile" data-index="2">
-            <img src="assets/images/work/work_tattoo_3.jpg" alt="Japanese Irezumi style koi and crimson maple tattoo" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_tattoo_3.jpg" srcset="assets/images/work/work_tattoo_3-480w.webp 480w, assets/images/work/work_tattoo_3-800w.webp 800w, assets/images/work/work_tattoo_3.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Japanese Irezumi style koi and crimson maple tattoo" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -3981,7 +4007,7 @@
 
           <!-- Tile 4: Neo-traditional -->
           <div class="work-tile" data-index="3">
-            <img src="assets/images/work/work_tattoo_4.jpg" alt="Neo-traditional falcon and crimson roses tattoo" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_tattoo_4.jpg" srcset="assets/images/work/work_tattoo_4-480w.webp 480w, assets/images/work/work_tattoo_4-800w.webp 800w, assets/images/work/work_tattoo_4.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Neo-traditional falcon and crimson roses tattoo" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -3992,7 +4018,7 @@
 
           <!-- Tile 5: Piercing 1 (Ear stack) -->
           <div class="work-tile" data-index="4">
-            <img src="assets/images/work/work_piercing_1.jpg" alt="Curated ear stack with gold huggies and conch diamond" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_piercing_1.jpg" srcset="assets/images/work/work_piercing_1-480w.webp 480w, assets/images/work/work_piercing_1-800w.webp 800w, assets/images/work/work_piercing_1.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Curated ear stack with gold huggies and conch diamond" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -4003,7 +4029,7 @@
 
           <!-- Tile 6: Realism -->
           <div class="work-tile" data-index="5">
-            <img src="assets/images/work/work_tattoo_5.jpg" alt="Black and grey realism classical statue tattoo" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_tattoo_5.jpg" srcset="assets/images/work/work_tattoo_5-480w.webp 480w, assets/images/work/work_tattoo_5-800w.webp 800w, assets/images/work/work_tattoo_5.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Black and grey realism classical statue tattoo" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -4014,7 +4040,7 @@
 
           <!-- Tile 7: Piercing 2 (Helix & Daith) -->
           <div class="work-tile" data-index="6">
-            <img src="assets/images/work/work_piercing_2.jpg" alt="Titanium cluster stud helix and captive bead daith piercing" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_piercing_2.jpg" srcset="assets/images/work/work_piercing_2-480w.webp 480w, assets/images/work/work_piercing_2-800w.webp 800w, assets/images/work/work_piercing_2.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Titanium cluster stud helix and captive bead daith piercing" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -4025,7 +4051,7 @@
 
           <!-- Tile 8: Lettering -->
           <div class="work-tile" data-index="7">
-            <img src="assets/images/work/work_tattoo_6.jpg" alt="Custom gothic blackletter script tattoo on inner forearm" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_tattoo_6.jpg" srcset="assets/images/work/work_tattoo_6-480w.webp 480w, assets/images/work/work_tattoo_6-800w.webp 800w, assets/images/work/work_tattoo_6.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Custom gothic blackletter script tattoo on inner forearm" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -4036,7 +4062,7 @@
 
           <!-- Tile 9: Piercing 3 (Septum) -->
           <div class="work-tile" data-index="8">
-            <img src="assets/images/work/work_piercing_3.jpg" alt="Yellow gold clicker ring in healed septum piercing" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_piercing_3.jpg" srcset="assets/images/work/work_piercing_3-480w.webp 480w, assets/images/work/work_piercing_3-800w.webp 800w, assets/images/work/work_piercing_3.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Yellow gold clicker ring in healed septum piercing" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -4047,7 +4073,7 @@
 
           <!-- Tile 10: Color botanical -->
           <div class="work-tile" data-index="9">
-            <img src="assets/images/work/work_tattoo_7.jpg" alt="Delicate color botanical branch tattoo on woman's shoulder" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_tattoo_7.jpg" srcset="assets/images/work/work_tattoo_7-480w.webp 480w, assets/images/work/work_tattoo_7-800w.webp 800w, assets/images/work/work_tattoo_7.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Delicate color botanical branch tattoo on woman's shoulder" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -4058,7 +4084,7 @@
 
           <!-- Tile 11: Piercing 4 (Nostril) -->
           <div class="work-tile" data-index="10">
-            <img src="assets/images/work/work_piercing_4.jpg" alt="Prong-set diamond and gold stud in nostril piercing" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_piercing_4.jpg" srcset="assets/images/work/work_piercing_4-480w.webp 480w, assets/images/work/work_piercing_4-800w.webp 800w, assets/images/work/work_piercing_4.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Prong-set diamond and gold stud in nostril piercing" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -4069,7 +4095,7 @@
 
           <!-- Tile 12: Piercing 5 (Navel) -->
           <div class="work-tile" data-index="11">
-            <img src="assets/images/work/work_piercing_5.jpg" alt="Titanium curved barbell with iridescent opal cabochons in navel" class="work-tile-img" loading="eager" width="896" height="1200">
+            <img src="assets/images/work/work_piercing_5.jpg" srcset="assets/images/work/work_piercing_5-480w.webp 480w, assets/images/work/work_piercing_5-800w.webp 800w, assets/images/work/work_piercing_5.jpg 896w" sizes="(max-width: 640px) 280px, 420px" alt="Titanium curved barbell with iridescent opal cabochons in navel" class="work-tile-img" loading="lazy" decoding="async" width="896" height="1200">
             <div class="work-tile-center-ig">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </div>
@@ -4087,7 +4113,7 @@
       <div class="lightbox-content">
         <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close artwork view">&times;</button>
         <div class="lightbox-img-wrap">
-          <img id="lightboxImg" src="assets/images/work/work_tattoo_1.jpg" alt="Detail artwork">
+          <img id="lightboxImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 4'%3E%3C/svg%3E" alt="Detail artwork" loading="lazy" decoding="async">
         </div>
         <div class="lightbox-info">
           <div>
@@ -4115,11 +4141,14 @@
               <div class="standard-img-container clip-reveal-frame" id="standardImgFrame">
                 <img 
                   src="assets/images/standard_sterile_setup.jpg" 
+                  srcset="assets/images/standard_sterile_setup-480w.webp 480w, assets/images/standard_sterile_setup-800w.webp 800w, assets/images/standard_sterile_setup.jpg 896w"
+                  sizes="(max-width: 768px) 100vw, 500px"
                   alt="Sterile surgical tray with sealed single-use tattoo needles, forceps, and implant-grade titanium body jewellery" 
                   class="standard-setup-img"
                   width="896"
                   height="1195"
                   loading="lazy"
+                  decoding="async"
                 >
               </div>
 
@@ -4239,19 +4268,25 @@
             <div class="artist-img-frame clip-reveal-frame">
               <img 
                 src="assets/images/artist_1_at_work.jpg" 
+                srcset="assets/images/artist_1_at_work-480w.webp 480w, assets/images/artist_1_at_work-800w.webp 800w, assets/images/artist_1_at_work.jpg 800w"
+                sizes="(max-width: 768px) 100vw, 380px"
                 alt="Caleb Vance working with rotary tattoo machine in private studio" 
                 class="artist-portrait-img"
                 width="800" 
                 height="1000" 
                 loading="lazy"
+                decoding="async"
               >
               <img 
                 src="assets/images/artist_1_work.jpg" 
+                srcset="assets/images/artist_1_work-480w.webp 480w, assets/images/artist_1_work-800w.webp 800w, assets/images/artist_1_work.jpg 800w"
+                sizes="(max-width: 768px) 100vw, 380px"
                 alt="Detailed healed fine line botanical tattoo by Caleb Vance" 
                 class="artist-work-hover-img"
                 width="800" 
                 height="1000" 
                 loading="lazy"
+                decoding="async"
               >
             </div>
             <div class="artist-info">
@@ -4274,19 +4309,25 @@
             <div class="artist-img-frame clip-reveal-frame">
               <img 
                 src="assets/images/artist_2_at_work.jpg" 
+                srcset="assets/images/artist_2_at_work-480w.webp 480w, assets/images/artist_2_at_work-800w.webp 800w, assets/images/artist_2_at_work.jpg 800w"
+                sizes="(max-width: 768px) 100vw, 380px"
                 alt="Maren Croft lining bold geometric blackwork tattoo with precision" 
                 class="artist-portrait-img"
                 width="800" 
                 height="1000" 
                 loading="lazy"
+                decoding="async"
               >
               <img 
                 src="assets/images/artist_2_work.jpg" 
+                srcset="assets/images/artist_2_work-480w.webp 480w, assets/images/artist_2_work-800w.webp 800w, assets/images/artist_2_work.jpg 800w"
+                sizes="(max-width: 768px) 100vw, 380px"
                 alt="Geometric blackwork forearm sleeve healed tattoo by Maren Croft" 
                 class="artist-work-hover-img"
                 width="800" 
                 height="1000" 
                 loading="lazy"
+                decoding="async"
               >
             </div>
             <div class="artist-info">
@@ -4309,19 +4350,25 @@
             <div class="artist-img-frame clip-reveal-frame">
               <img 
                 src="assets/images/artist_3_portrait.jpg" 
+                srcset="assets/images/artist_3_portrait-480w.webp 480w, assets/images/artist_3_portrait-800w.webp 800w, assets/images/artist_3_portrait.jpg 800w"
+                sizes="(max-width: 768px) 100vw, 380px"
                 alt="Elena Thorne arranging titanium jewellery on sterile piercing tray" 
                 class="artist-portrait-img"
                 width="800" 
                 height="1000" 
                 loading="lazy"
+                decoding="async"
               >
               <img 
                 src="assets/images/artist_3_work.jpg" 
+                srcset="assets/images/artist_3_work-480w.webp 480w, assets/images/artist_3_work-800w.webp 800w, assets/images/artist_3_work.jpg 800w"
+                sizes="(max-width: 768px) 100vw, 380px"
                 alt="Anatomically curated solid gold ear stack piercing by Elena Thorne" 
                 class="artist-work-hover-img"
                 width="800" 
                 height="1000" 
                 loading="lazy"
+                decoding="async"
               >
             </div>
             <div class="artist-info">
@@ -4581,7 +4628,7 @@
       <div class="container">
         <div class="reviews-header">
           <div class="reviews-stars-top">★★★★★</div>
-          <h2 class="section-title reviews-heading">\n            <span id="reviewsCountVal" data-to="4.9">4.9</span> ON GOOGLE &middot; 180+ REVIEWS\n          </h2>
+          <h2 class="section-title reviews-heading"><span id="reviewsCountVal" data-to="4.9">4.9</span> ON GOOGLE &middot; 180+ REVIEWS</h2>
           <p style="font-size: 1.125rem; color: rgba(247, 242, 234, 0.85);">
             Unedited feedback from clients across Christchurch and New Zealand.
           </p>
@@ -5270,7 +5317,7 @@
   </main>
 
   <!-- Mobile Sticky Consultation Bar -->
-  <div class="mobile-booking-bar">
+  <div class="mobile-booking-bar" id="mobileBookingBar">
     <div>
       <div style="font-family: var(--font-heading); font-size: 1.15rem; line-height: 1; text-transform: uppercase; color: var(--ink);">Black Heron</div>
       <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ash);">Christchurch Central</div>
@@ -5390,7 +5437,7 @@
 
       function finishLoading() {
         if (loader) loader.style.display = 'none';
-        if (window.lenisInstance) window.lenisInstance.start();
+        if (typeof lenis !== 'undefined' && lenis && typeof lenis.start === 'function') lenis.start();
         ScrollTrigger.refresh();
       }
 
@@ -5431,15 +5478,14 @@
       const shutterBottom = document.getElementById('loaderShutterBottom');
       const wordmark = document.getElementById('loaderWordmark');
 
-      // Real Loading: waits for document.fonts.ready and decoded hero image, min 2.4s (PC) / 1.1s (mobile), failsafe 6s (PC) / 3.2s (mobile)
+      // Real Loading: waits for fonts and decoded hero image, snappy on mobile (~0.9s), luxury 2.4s on desktop
       const isMobile = window.innerWidth <= 768;
-      let assetsLoaded = false;
       const heroImg = new Image();
-      heroImg.src = 'assets/images/hero_bg.jpg';
+      heroImg.src = isMobile ? 'assets/images/hero_bg-800w.webp' : 'assets/images/hero_bg.jpg';
       const heroDecodePromise = (heroImg.decode ? heroImg.decode() : Promise.resolve()).catch(() => {});
-      const fontsPromise = (document.fonts ? document.fonts.ready : Promise.resolve());
-      const minTimerPromise = new Promise(resolve => setTimeout(resolve, isMobile ? 1100 : 2400));
-      const heroTimeout = new Promise(resolve => setTimeout(resolve, isMobile ? 1200 : 4000));
+      const fontsPromise = (document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, isMobile ? 500 : 2500))]) : Promise.resolve());
+      const minTimerPromise = new Promise(resolve => setTimeout(resolve, isMobile ? 350 : 2400));
+      const heroTimeout = new Promise(resolve => setTimeout(resolve, isMobile ? 600 : 4000));
       const heroReadyPromise = Promise.race([heroDecodePromise, heroTimeout]);
 
       let progressVal = 0;
@@ -5450,15 +5496,15 @@
         if (progressBar) progressBar.style.width = rounded + '%';
       }
 
-      // Initial reveal: 0.0 to 0.3s ink screen, meta line & counter fade in
-      gsap.to([metaLeft, counter], { opacity: 1, duration: 0.3, ease: 'power2.out' });
-      // 0.3 to 1.6s: BLACK HERON rises letter by letter from mask (0.05s stagger, expo.out)
-      gsap.to(letters, { y: 0, yPercent: 0, duration: 0.85, stagger: 0.05, ease: 'expo.out', delay: 0.3 });
+      // Initial reveal: ink screen, meta line & counter fade in
+      gsap.to([metaLeft, counter], { opacity: 1, duration: isMobile ? 0.15 : 0.3, ease: 'power2.out' });
+      // BLACK HERON rises letter by letter from mask
+      gsap.to(letters, { y: 0, yPercent: 0, duration: isMobile ? 0.45 : 0.85, stagger: isMobile ? 0.02 : 0.05, ease: 'expo.out', delay: isMobile ? 0.1 : 0.3 });
 
       // Progress bar draws across screen reflecting loaded assets
       const progressTween = gsap.to({ p: 0 }, {
         p: 88,
-        duration: isMobile ? 1.0 : 2.2,
+        duration: isMobile ? 0.4 : 2.2,
         ease: 'power1.out',
         onUpdate: function() {
           setProgress(this.targets()[0].p);
@@ -5468,7 +5514,7 @@
       const readyPromise = Promise.all([heroReadyPromise, fontsPromise, minTimerPromise]);
       const failsafeTimer = setTimeout(() => {
         triggerShutterOpen();
-      }, isMobile ? 3200 : 6000);
+      }, isMobile ? 1200 : 6000);
 
       let opened = false;
       readyPromise.then(() => {
@@ -5484,53 +5530,52 @@
         // Smoothly complete progress to 100%
         gsap.to({ p: progressVal }, {
           p: 100,
-          duration: 0.25,
+          duration: isMobile ? 0.12 : 0.25,
           ease: 'power1.out',
           onUpdate: function() {
             setProgress(this.targets()[0].p);
           },
           onComplete: () => {
-            // 1.6 to 2.0s: crimson line draws through middle of wordmark, wordmark softens to 30%
+            // Crimson line draws through middle of wordmark, wordmark softens to 30%
             const exitTl = gsap.timeline({
               onComplete: finishLoading
             });
 
-            exitTl.to(strikeLine, { scaleX: 1, duration: 0.35, ease: 'power2.inOut' });
-            exitTl.to(wordmark, { opacity: 0.3, duration: 0.3, ease: 'power2.out' }, '-=0.2');
+            exitTl.to(strikeLine, { scaleX: 1, duration: isMobile ? 0.2 : 0.35, ease: 'power2.inOut' });
+            exitTl.to(wordmark, { opacity: 0.3, duration: isMobile ? 0.15 : 0.3, ease: 'power2.out' }, '-=0.1');
 
-            // 2.0 to 2.9s: shutters open from center with expo.inOut
+            // Shutters open from center with expo.inOut
             exitTl.to([metaLeft, counter, progressBar, wordmark, strikeLine], {
               opacity: 0,
-              duration: 0.25,
+              duration: isMobile ? 0.15 : 0.25,
               ease: 'power2.in'
-            }, '+=0.1');
+            }, '+=0.05');
 
-            exitTl.to(shutterTop, { yPercent: -100, duration: 0.9, ease: 'expo.inOut' }, '<');
-            exitTl.to(shutterBottom, { yPercent: 100, duration: 0.9, ease: 'expo.inOut' }, '<');
+            exitTl.to(shutterTop, { yPercent: -100, duration: isMobile ? 0.5 : 0.9, ease: 'expo.inOut' }, '<');
+            exitTl.to(shutterBottom, { yPercent: 100, duration: isMobile ? 0.5 : 0.9, ease: 'expo.inOut' }, '<');
 
-            // Starting as shutters open (2.0s, not before):
             // Hero photo settles from scale 1.15 to 1
-            exitTl.to('.hero-bg-img', { scale: 1.0, duration: 1.2, ease: 'power2.out' }, '<+=0.05');
-            // Headline lines rise from masks (0.08s stagger)
+            exitTl.to('.hero-bg-img', { scale: 1.0, duration: isMobile ? 0.6 : 1.2, ease: 'power2.out' }, '<+=0.05');
+            // Headline lines rise from masks
             exitTl.fromTo('.hero-heading .reveal-line',
               { y: '105%' },
-              { y: '0%', duration: 0.9, stagger: 0.08, ease: 'expo.out' },
-              '<+=0.1'
+              { y: '0%', duration: isMobile ? 0.5 : 0.9, stagger: isMobile ? 0.04 : 0.08, ease: 'expo.out' },
+              '<+=0.05'
             );
             // Header fades down
-            exitTl.to('.site-header', { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out' }, '<+=0.15');
+            exitTl.to('.site-header', { opacity: 1, y: 0, duration: isMobile ? 0.4 : 0.75, ease: 'power2.out' }, '<+=0.05');
             // Atelier script word writes itself on
             exitTl.fromTo('.hero-script-word',
               { opacity: 0, scale: 0.9 },
-              { opacity: 1, scale: 1, duration: 0.75, ease: 'power2.out' },
-              '<+=0.2'
+              { opacity: 1, scale: 1, duration: isMobile ? 0.4 : 0.75, ease: 'power2.out' },
+              '<+=0.1'
             );
-            exitTl.to('.hero-content', { opacity: 1, duration: 0.7, ease: 'power2.out' }, '<+=0.1');
-            // Badge pops in at the end
+            exitTl.to('.hero-content', { opacity: 1, duration: isMobile ? 0.4 : 0.7, ease: 'power2.out' }, '<+=0.05');
+            // Badge pops in
             exitTl.fromTo('.hero-circular-badge',
               { opacity: 0, scale: 0.7 },
-              { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)' },
-              '<+=0.25'
+              { opacity: 1, scale: 1, duration: isMobile ? 0.35 : 0.6, ease: 'back.out(1.7)' },
+              '<+=0.1'
             );
           }
         });
@@ -5540,6 +5585,13 @@
     // 2. Lenis Smooth Scroll Initialisation
     let lenis;
     function initLenis() {
+      const isTouchMobile = window.innerWidth <= 768 || ('ontouchstart' in window && !window.matchMedia('(pointer: fine)').matches);
+      if (isTouchMobile) {
+        // Native 120Hz/60Hz hardware momentum scrolling on phones prevents touch lag and stutter
+        window.addEventListener('scroll', ScrollTrigger.update, { passive: true });
+        return;
+      }
+
       lenis = new Lenis({
         duration: 1.1,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -5704,13 +5756,22 @@
       const baseSpeed = 1.2;
       let scrollBoost = 0;
 
+      let loopWidth1 = (track1.scrollWidth / 3) || 1200;
+      let loopWidth2 = (track2.scrollWidth / 3) || 1200;
+
+      function updateLoopWidths() {
+        if (track1 && track2) {
+          loopWidth1 = track1.scrollWidth / 3;
+          loopWidth2 = track2.scrollWidth / 3;
+        }
+      }
+      window.addEventListener('resize', updateLoopWidths, { passive: true });
+      setTimeout(updateLoopWidths, 800);
+
       function renderMarquee() {
         const speed = baseSpeed + scrollBoost;
         pos1 -= speed;
         pos2 += speed;
-
-        const loopWidth1 = track1.scrollWidth / 3;
-        const loopWidth2 = track2.scrollWidth / 3;
 
         if (pos1 <= -loopWidth1) pos1 += loopWidth1;
         if (pos2 >= 0) pos2 -= loopWidth2;
@@ -6614,6 +6675,28 @@
       }
     }
 
+    // 17b. Mobile Sticky Booking Bar Auto-Hide in Booking / Footer
+    function initMobileBookingBar() {
+      const bar = document.getElementById('mobileBookingBar');
+      const bookingSec = document.getElementById('booking');
+      const footerSec = document.getElementById('footer');
+      if (!bar) return;
+
+      if ('IntersectionObserver' in window && (bookingSec || footerSec)) {
+        const observer = new IntersectionObserver((entries) => {
+          const isOverlapping = entries.some(entry => entry.isIntersecting);
+          if (isOverlapping) {
+            bar.classList.add('is-hidden');
+          } else {
+            bar.classList.remove('is-hidden');
+          }
+        }, { threshold: 0.08 });
+
+        if (bookingSec) observer.observe(bookingSec);
+        if (footerSec) observer.observe(footerSec);
+      }
+    }
+
     // 18. Mobile Drawer Menu
     function initMobileMenu() {
       const btn = document.getElementById('mobileMenuBtn');
@@ -6664,6 +6747,7 @@
       initFAQ();
       initBookingWizard();
       initMobileMenu();
+      initMobileBookingBar();
       updateLiveStudioHours();
 
       // Heading & Clip Reveal Observers (ScrollTrigger + Native IntersectionObserver fallback)
