@@ -580,11 +580,11 @@
       opacity: 0;
     }
 
-    /* Mobile Menu Open State: ink background and ivory text regardless of scroll position */
+    /* Mobile Menu Open State: ivory background and ink text to match mobile drawer */
     .site-header.menu-open {
-      background-color: var(--ink) !important;
-      color: var(--ivory) !important;
-      border-bottom: 1px solid rgba(247, 242, 234, 0.12) !important;
+      background-color: var(--ivory) !important;
+      color: var(--ink) !important;
+      border-bottom: 1px solid rgba(14, 12, 11, 0.1) !important;
       transform: translateY(0) !important;
     }
 
@@ -612,6 +612,7 @@
       line-height: 1;
       letter-spacing: 0.04em;
       color: var(--ivory);
+      white-space: nowrap;
       transition: color 0.35s ease;
     }
 
@@ -620,7 +621,7 @@
     }
 
     .site-header.menu-open .brand-wordmark {
-      color: var(--ivory) !important;
+      color: var(--ink) !important;
     }
 
     .brand-tagline {
@@ -629,6 +630,7 @@
       letter-spacing: 0.12em;
       color: var(--ivory);
       margin-top: 2px;
+      white-space: nowrap;
       transition: color 0.35s ease;
     }
 
@@ -637,7 +639,7 @@
     }
 
     .site-header.menu-open .brand-tagline {
-      color: var(--bone) !important;
+      color: var(--ash) !important;
     }
 
     .nav-links {
@@ -751,7 +753,7 @@
     }
 
     .site-header.menu-open .mobile-menu-btn {
-      color: var(--ivory) !important;
+      color: var(--ink) !important;
     }
 
     @media (min-width: 1024px) {
@@ -802,10 +804,12 @@
       display: none;
       flex-direction: column;
       justify-content: space-between;
-      padding: calc(var(--header-height) + 2rem) 2rem 3rem;
+      padding: calc(var(--header-height) + 1.5rem) 1.5rem calc(65px + 1.5rem);
       transform: translateX(100%);
       transition: transform 0.45s var(--ease-editorial);
       color: var(--ink);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .mobile-drawer.open {
@@ -825,6 +829,63 @@
       line-height: 1;
       text-transform: uppercase;
       color: var(--ink);
+    }
+
+    /* Section scroll margin offset for fixed header */
+    section[id], footer[id] {
+      scroll-margin-top: 80px;
+    }
+
+    /* ==========================================================================
+       MOBILE OPTIMISATIONS (<= 768px): PRESERVE DESKTOP EXACTLY
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .site-header {
+        height: 72px;
+      }
+
+      .site-header.is-scrolled {
+        height: 64px;
+      }
+
+      .site-header::before {
+        height: 110px;
+      }
+
+      .brand-wordmark {
+        font-size: clamp(1.35rem, 5vw, 1.65rem);
+      }
+
+      .brand-tagline {
+        font-size: clamp(0.65rem, 2.3vw, 0.72rem);
+        letter-spacing: 0.1em;
+      }
+
+      /* Hide redundant consult button from top mobile header */
+      .header-consult-btn {
+        display: none !important;
+      }
+
+      .mobile-drawer {
+        padding: calc(72px + 1.5rem) 1.5rem calc(65px + 1.5rem);
+      }
+
+      /* Keep circular rotating badge above sticky booking bar */
+      .hero-circular-badge {
+        bottom: calc(65px + 1rem) !important;
+        right: 1.25rem !important;
+        width: 85px !important;
+        height: 85px !important;
+      }
+
+      /* Prevent sticky booking bar from obscuring footer content */
+      .site-footer {
+        padding-bottom: calc(65px + 2rem) !important;
+      }
+
+      section[id], footer[id] {
+        scroll-margin-top: 72px;
+      }
     }
 
     /* ==========================================================================
@@ -5370,13 +5431,16 @@
       const shutterBottom = document.getElementById('loaderShutterBottom');
       const wordmark = document.getElementById('loaderWordmark');
 
-      // Real Loading: waits for document.fonts.ready and decoded hero image, min 2.4s, failsafe 6s
+      // Real Loading: waits for document.fonts.ready and decoded hero image, min 2.4s (PC) / 1.1s (mobile), failsafe 6s (PC) / 3.2s (mobile)
+      const isMobile = window.innerWidth <= 768;
       let assetsLoaded = false;
       const heroImg = new Image();
       heroImg.src = 'assets/images/hero_bg.jpg';
       const heroDecodePromise = (heroImg.decode ? heroImg.decode() : Promise.resolve()).catch(() => {});
       const fontsPromise = (document.fonts ? document.fonts.ready : Promise.resolve());
-      const minTimerPromise = new Promise(resolve => setTimeout(resolve, 2400));
+      const minTimerPromise = new Promise(resolve => setTimeout(resolve, isMobile ? 1100 : 2400));
+      const heroTimeout = new Promise(resolve => setTimeout(resolve, isMobile ? 1200 : 4000));
+      const heroReadyPromise = Promise.race([heroDecodePromise, heroTimeout]);
 
       let progressVal = 0;
       function setProgress(val) {
@@ -5394,17 +5458,17 @@
       // Progress bar draws across screen reflecting loaded assets
       const progressTween = gsap.to({ p: 0 }, {
         p: 88,
-        duration: 2.2,
+        duration: isMobile ? 1.0 : 2.2,
         ease: 'power1.out',
         onUpdate: function() {
           setProgress(this.targets()[0].p);
         }
       });
 
-      const readyPromise = Promise.all([heroDecodePromise, fontsPromise, minTimerPromise]);
+      const readyPromise = Promise.all([heroReadyPromise, fontsPromise, minTimerPromise]);
       const failsafeTimer = setTimeout(() => {
         triggerShutterOpen();
-      }, 6000);
+      }, isMobile ? 3200 : 6000);
 
       let opened = false;
       readyPromise.then(() => {
@@ -6564,6 +6628,9 @@
           header.classList.toggle('menu-open', isOpen);
           if (isOpen) {
             header.classList.remove('is-hidden');
+            document.body.style.overflow = 'hidden';
+          } else {
+            document.body.style.overflow = '';
           }
         }
       });
@@ -6571,6 +6638,7 @@
       window.closeMobileMenu = function() {
         drawer.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
         if (header) {
           header.classList.remove('menu-open');
         }
