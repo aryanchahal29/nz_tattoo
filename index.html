@@ -530,18 +530,66 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: var(--header-height);
+      height: 96px;
       z-index: 1000;
-      background-color: rgba(247, 242, 234, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
+      background-color: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-bottom: 1px solid transparent;
+      box-shadow: none;
       opacity: 0;
       transform: translateY(-20px);
-      transition: transform 0.4s var(--ease-editorial), background-color 0.4s ease;
+      transition:
+        transform 0.4s var(--ease-editorial),
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        height 0.35s ease;
+      color: var(--ivory);
     }
 
+    /* Soft scrim behind header at top of page over hero (140px gradient, no blur) */
+    .site-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 140px;
+      background: linear-gradient(180deg, rgba(14, 12, 11, 0.55) 0%, rgba(14, 12, 11, 0) 100%);
+      pointer-events: none;
+      z-index: -1;
+      opacity: 1;
+      transition: opacity 0.35s ease;
+    }
+
+    /* Hide on scroll down */
     .site-header.is-hidden {
       transform: translateY(-100%);
+    }
+
+    /* Solid Scrolled State (scrollY >= 80px) */
+    .site-header.is-scrolled {
+      height: 76px;
+      background-color: var(--ivory);
+      border-bottom: 1px solid rgba(14, 12, 11, 0.12);
+      color: var(--ink);
+    }
+
+    .site-header.is-scrolled::before {
+      opacity: 0;
+    }
+
+    /* Mobile Menu Open State: ink background and ivory text regardless of scroll position */
+    .site-header.menu-open {
+      background-color: var(--ink) !important;
+      color: var(--ivory) !important;
+      border-bottom: 1px solid rgba(247, 242, 234, 0.12) !important;
+      transform: translateY(0) !important;
+    }
+
+    .site-header.menu-open::before {
+      opacity: 0 !important;
     }
 
     .header-inner {
@@ -555,6 +603,7 @@
       display: flex;
       flex-direction: column;
       text-decoration: none;
+      color: inherit;
     }
 
     .brand-wordmark {
@@ -562,15 +611,33 @@
       font-size: 1.85rem;
       line-height: 1;
       letter-spacing: 0.04em;
+      color: var(--ivory);
+      transition: color 0.35s ease;
+    }
+
+    .site-header.is-scrolled .brand-wordmark {
       color: var(--ink);
+    }
+
+    .site-header.menu-open .brand-wordmark {
+      color: var(--ivory) !important;
     }
 
     .brand-tagline {
       font-size: 0.8125rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--ash);
+      color: var(--ivory);
       margin-top: 2px;
+      transition: color 0.35s ease;
+    }
+
+    .site-header.is-scrolled .brand-tagline {
+      color: var(--ash);
+    }
+
+    .site-header.menu-open .brand-tagline {
+      color: var(--bone) !important;
     }
 
     .nav-links {
@@ -592,9 +659,18 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--ink);
+      color: var(--ivory);
       position: relative;
       padding: 0.4rem 0;
+      transition: color 0.35s ease;
+    }
+
+    .site-header.is-scrolled .nav-link {
+      color: var(--ink);
+    }
+
+    .site-header.menu-open .nav-link {
+      color: var(--ivory) !important;
     }
 
     .nav-link::after {
@@ -620,6 +696,42 @@
       gap: 1rem;
     }
 
+    /* "Book a consult" button in header */
+    .header-consult-btn {
+      height: 44px;
+      padding: 0 1.35rem;
+      font-size: 0.875rem;
+      background-color: var(--ivory);
+      color: var(--ink);
+      border: 1px solid var(--ivory);
+      transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .header-consult-btn:hover {
+      color: var(--ivory);
+      border-color: var(--oxblood);
+    }
+
+    .site-header.is-scrolled .header-consult-btn {
+      background-color: var(--ink);
+      color: var(--ivory);
+      border-color: var(--ink);
+    }
+
+    .site-header.is-scrolled .header-consult-btn:hover {
+      color: var(--ivory);
+      border-color: var(--oxblood);
+    }
+
+    .site-header.menu-open .header-consult-btn {
+      background-color: var(--ivory) !important;
+      color: var(--ink) !important;
+      border-color: var(--ivory) !important;
+    }
+
     .mobile-menu-btn {
       display: flex;
       flex-direction: column;
@@ -629,8 +741,17 @@
       background: none;
       border: none;
       cursor: pointer;
-      color: var(--ink);
+      color: var(--ivory);
       padding: 0;
+      transition: color 0.35s ease;
+    }
+
+    .site-header.is-scrolled .mobile-menu-btn {
+      color: var(--ink);
+    }
+
+    .site-header.menu-open .mobile-menu-btn {
+      color: var(--ivory) !important;
     }
 
     @media (min-width: 1024px) {
@@ -644,7 +765,32 @@
       width: 100%;
       height: 2px;
       background-color: currentColor;
-      transition: transform 0.3s, opacity 0.3s;
+      transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.35s ease;
+    }
+
+    .site-header.menu-open .mobile-menu-btn span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .site-header.menu-open .mobile-menu-btn span:nth-child(2) {
+      opacity: 0;
+    }
+    .site-header.menu-open .mobile-menu-btn span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Respect prefers-reduced-motion (no transitions) */
+    @media (prefers-reduced-motion: reduce) {
+      .site-header,
+      .site-header::before,
+      .site-header *,
+      .brand-wordmark,
+      .brand-tagline,
+      .nav-link,
+      .header-consult-btn,
+      .mobile-menu-btn,
+      .mobile-menu-btn span {
+        transition: none !important;
+      }
     }
 
     /* Mobile Drawer */
@@ -3420,6 +3566,17 @@
 
   <!-- SECTION 1: HEADER -->
   <header class="site-header" id="siteHeader">
+    <script>
+      (function() {
+        try {
+          var y = window.scrollY || (document.documentElement && document.documentElement.scrollTop) || 0;
+          var h = window.location.hash;
+          if (y >= 80 || (h && h !== '#hero' && h !== '#')) {
+            document.getElementById('siteHeader').classList.add('is-scrolled');
+          }
+        } catch(e) {}
+      })();
+    </script>
     <div class="container header-inner">
       <a href="#hero" class="brand-wrap" aria-label="Black Heron Home">
         <span class="brand-wordmark">BLACK HERON</span>
@@ -3439,8 +3596,8 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#booking" class="btn" style="height: 44px; padding: 0 1.35rem; font-size: 0.875rem;">Book a consult</a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
+        <a href="#booking" class="btn header-consult-btn">Book a consult</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -5349,23 +5506,64 @@
       }, { passive: true });
     }
 
-    // 4. Header Hide / Reveal Controller
+    // 4. Header Hide / Reveal & Solid / Transparent Controller
     function initHeaderScroll() {
       const header = document.getElementById('siteHeader');
       if (!header) return;
 
-      let lastScroll = 0;
-      window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-        if (currentScroll <= 80) {
+      let lastScroll = window.scrollY || document.documentElement.scrollTop || 0;
+      let ticking = false;
+
+      function updateHeader() {
+        const currentScroll = window.scrollY || document.documentElement.scrollTop || 0;
+
+        // 1. Solid vs Transparent based purely on scroll position (>= 80px)
+        if (currentScroll >= 80) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+
+        // 2. Hide on scroll down and show on scroll up
+        if (header.classList.contains('menu-open')) {
+          header.classList.remove('is-hidden');
+        } else if (currentScroll <= 80) {
           header.classList.remove('is-hidden');
         } else if (currentScroll > lastScroll && currentScroll > 150) {
           header.classList.add('is-hidden');
-        } else {
+        } else if (currentScroll < lastScroll) {
           header.classList.remove('is-hidden');
         }
+
         lastScroll = currentScroll;
+        ticking = false;
+      }
+
+      // Passive scroll listener with requestAnimationFrame
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
       }, { passive: true });
+
+      // Synchronize with Lenis scroll if present
+      if (typeof lenis !== 'undefined' && lenis) {
+        lenis.on('scroll', () => {
+          if (!ticking) {
+            window.requestAnimationFrame(updateHeader);
+            ticking = true;
+          }
+        });
+      }
+
+      // Also listen to hashchange
+      window.addEventListener('hashchange', () => {
+        window.requestAnimationFrame(updateHeader);
+      });
+
+      // Synchronous initial run
+      updateHeader();
     }
 
     // 5. Hero SVG Script Draw ("atelier")
@@ -6356,14 +6554,26 @@
     function initMobileMenu() {
       const btn = document.getElementById('mobileMenuBtn');
       const drawer = document.getElementById('mobileDrawer');
+      const header = document.getElementById('siteHeader');
       if (!btn || !drawer) return;
 
       btn.addEventListener('click', () => {
-        drawer.classList.toggle('open');
+        const isOpen = drawer.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (header) {
+          header.classList.toggle('menu-open', isOpen);
+          if (isOpen) {
+            header.classList.remove('is-hidden');
+          }
+        }
       });
 
       window.closeMobileMenu = function() {
         drawer.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        if (header) {
+          header.classList.remove('menu-open');
+        }
       };
     }
 
