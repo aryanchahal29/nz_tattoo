@@ -1,0 +1,1350 @@
+{
+  "assets/images/hero_bg.jpg": {
+    "baseName": "hero_bg",
+    "originalSizeKB": "401.7",
+    "originalDims": "1920x2495",
+    "width": 1920,
+    "height": 2495,
+    "aspectRatio": "1920 / 2495",
+    "dominantColor": "rgb(24, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJQBadAxEV1vTdHYafIAD+0RLYbxc4eKNJPH5E+j2PXYm+1TimNr/pRepHXtgGUSl+C3Ak/ywIZlwokdWdLQAA",
+    "placeholderLen": 167,
+    "isHero": true,
+    "bw": true,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/hero_bg-480w.avif",
+          "size": 8794,
+          "sizeKB": "8.6"
+        },
+        "webp": {
+          "file": "assets/images/hero_bg-480w.webp",
+          "size": 11116,
+          "sizeKB": "10.9"
+        },
+        "jpg": {
+          "file": "assets/images/hero_bg-480w.jpg",
+          "size": 22385,
+          "sizeKB": "21.9"
+        },
+        "width": 480,
+        "height": 624
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/hero_bg-800w.avif",
+          "size": 16960,
+          "sizeKB": "16.6"
+        },
+        "webp": {
+          "file": "assets/images/hero_bg-800w.webp",
+          "size": 21192,
+          "sizeKB": "20.7"
+        },
+        "jpg": {
+          "file": "assets/images/hero_bg-800w.jpg",
+          "size": 49533,
+          "sizeKB": "48.4"
+        },
+        "width": 800,
+        "height": 1040
+      },
+      "1200": {
+        "avif": {
+          "file": "assets/images/hero_bg-1200w.avif",
+          "size": 29234,
+          "sizeKB": "28.5"
+        },
+        "webp": {
+          "file": "assets/images/hero_bg-1200w.webp",
+          "size": 35824,
+          "sizeKB": "35.0"
+        },
+        "jpg": {
+          "file": "assets/images/hero_bg-1200w.jpg",
+          "size": 93813,
+          "sizeKB": "91.6"
+        },
+        "width": 1200,
+        "height": 1559
+      },
+      "1600": {
+        "avif": {
+          "file": "assets/images/hero_bg-1600w.avif",
+          "size": 41571,
+          "sizeKB": "40.6"
+        },
+        "webp": {
+          "file": "assets/images/hero_bg-1600w.webp",
+          "size": 51646,
+          "sizeKB": "50.4"
+        },
+        "jpg": {
+          "file": "assets/images/hero_bg-1600w.jpg",
+          "size": 150354,
+          "sizeKB": "146.8"
+        },
+        "width": 1600,
+        "height": 2079
+      }
+    }
+  },
+  "assets/images/studio_intro.jpg": {
+    "baseName": "studio_intro",
+    "originalSizeKB": "869.4",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQBACdASoQABUAPzmEuVOvKKWisAgB4CcJYwC06BorlDPDr3aRogWC7+AAAP6ig3PM5x1MPBYOrzHfigqusKyV2a0mOWmYZzlNOJybr0Y1aK4QPvrBN9/ticxZI97UJxCCiIUXbYMdp3DxeZhoAA==",
+    "placeholderLen": 199,
+    "isHero": false,
+    "bw": true,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/studio_intro-480w.avif",
+          "size": 24838,
+          "sizeKB": "24.3"
+        },
+        "webp": {
+          "file": "assets/images/studio_intro-480w.webp",
+          "size": 36220,
+          "sizeKB": "35.4"
+        },
+        "jpg": {
+          "file": "assets/images/studio_intro-480w.jpg",
+          "size": 52080,
+          "sizeKB": "50.9"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/studio_intro-800w.avif",
+          "size": 51806,
+          "sizeKB": "50.6"
+        },
+        "webp": {
+          "file": "assets/images/studio_intro-800w.webp",
+          "size": 74424,
+          "sizeKB": "72.7"
+        },
+        "jpg": {
+          "file": "assets/images/studio_intro-800w.jpg",
+          "size": 120498,
+          "sizeKB": "117.7"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/discipline_tattoo.jpg": {
+    "baseName": "discipline_tattoo",
+    "originalSizeKB": "638.5",
+    "originalDims": "1200x896",
+    "width": 1200,
+    "height": 896,
+    "aspectRatio": "1200 / 896",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoQAAwABUB8JaQAAvyaxv8IR/AAAP7xbsZWJwCBOAEzgwxmJx2wHMxm/+nHKDHJb15gA9dBCMZcDIN6VRxV+u8iUOG6D/UtAAA=",
+    "placeholderLen": 155,
+    "isHero": false,
+    "bw": true,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/discipline_tattoo-480w.avif",
+          "size": 8280,
+          "sizeKB": "8.1"
+        },
+        "webp": {
+          "file": "assets/images/discipline_tattoo-480w.webp",
+          "size": 10196,
+          "sizeKB": "10.0"
+        },
+        "jpg": {
+          "file": "assets/images/discipline_tattoo-480w.jpg",
+          "size": 17965,
+          "sizeKB": "17.5"
+        },
+        "width": 480,
+        "height": 358
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/discipline_tattoo-800w.avif",
+          "size": 16459,
+          "sizeKB": "16.1"
+        },
+        "webp": {
+          "file": "assets/images/discipline_tattoo-800w.webp",
+          "size": 20656,
+          "sizeKB": "20.2"
+        },
+        "jpg": {
+          "file": "assets/images/discipline_tattoo-800w.jpg",
+          "size": 39599,
+          "sizeKB": "38.7"
+        },
+        "width": 800,
+        "height": 597
+      },
+      "1200": {
+        "avif": {
+          "file": "assets/images/discipline_tattoo-1200w.avif",
+          "size": 28034,
+          "sizeKB": "27.4"
+        },
+        "webp": {
+          "file": "assets/images/discipline_tattoo-1200w.webp",
+          "size": 36648,
+          "sizeKB": "35.8"
+        },
+        "jpg": {
+          "file": "assets/images/discipline_tattoo-1200w.jpg",
+          "size": 78284,
+          "sizeKB": "76.4"
+        },
+        "width": 1200,
+        "height": 896
+      }
+    }
+  },
+  "assets/images/discipline_piercing.jpg": {
+    "baseName": "discipline_piercing",
+    "originalSizeKB": "673.1",
+    "originalDims": "1200x896",
+    "width": 1200,
+    "height": 896,
+    "aspectRatio": "1200 / 896",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoQAAwABUB8JaQAAdBlxjOQgAD+a0B0hXDlnDPHKjkOU7lktRDgNgaD7QL0S3SGYEVcfrsi08bFuYoEkAA=",
+    "placeholderLen": 139,
+    "isHero": false,
+    "bw": true,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/discipline_piercing-480w.avif",
+          "size": 7489,
+          "sizeKB": "7.3"
+        },
+        "webp": {
+          "file": "assets/images/discipline_piercing-480w.webp",
+          "size": 8106,
+          "sizeKB": "7.9"
+        },
+        "jpg": {
+          "file": "assets/images/discipline_piercing-480w.jpg",
+          "size": 16568,
+          "sizeKB": "16.2"
+        },
+        "width": 480,
+        "height": 358
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/discipline_piercing-800w.avif",
+          "size": 16977,
+          "sizeKB": "16.6"
+        },
+        "webp": {
+          "file": "assets/images/discipline_piercing-800w.webp",
+          "size": 18590,
+          "sizeKB": "18.2"
+        },
+        "jpg": {
+          "file": "assets/images/discipline_piercing-800w.jpg",
+          "size": 40104,
+          "sizeKB": "39.2"
+        },
+        "width": 800,
+        "height": 597
+      },
+      "1200": {
+        "avif": {
+          "file": "assets/images/discipline_piercing-1200w.avif",
+          "size": 30130,
+          "sizeKB": "29.4"
+        },
+        "webp": {
+          "file": "assets/images/discipline_piercing-1200w.webp",
+          "size": 36894,
+          "sizeKB": "36.0"
+        },
+        "jpg": {
+          "file": "assets/images/discipline_piercing-1200w.jpg",
+          "size": 84337,
+          "sizeKB": "82.4"
+        },
+        "width": 1200,
+        "height": 896
+      }
+    }
+  },
+  "assets/images/gloved_hands_piercing.jpg": {
+    "baseName": "gloved_hands_piercing",
+    "originalSizeKB": "703.9",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABwBACdASoQABUAPzmEuVOvKKWisAgB4CcJaQAAV4gbFQo/4Pahu2+nFzAXHAD7iBydFfEicvn7wBwEEa3aQLi54Bh3xOv/PYE+KZ0oUJopW+Q8ToWGB4GWaRuWCZf2vab7sKQ9zvoo9lLj+6+iziw9FZjyXjsSOAAAAA==",
+    "placeholderLen": 215,
+    "isHero": false,
+    "bw": true,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/gloved_hands_piercing-480w.avif",
+          "size": 13874,
+          "sizeKB": "13.5"
+        },
+        "webp": {
+          "file": "assets/images/gloved_hands_piercing-480w.webp",
+          "size": 18566,
+          "sizeKB": "18.1"
+        },
+        "jpg": {
+          "file": "assets/images/gloved_hands_piercing-480w.jpg",
+          "size": 33483,
+          "sizeKB": "32.7"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/gloved_hands_piercing-800w.avif",
+          "size": 31603,
+          "sizeKB": "30.9"
+        },
+        "webp": {
+          "file": "assets/images/gloved_hands_piercing-800w.webp",
+          "size": 40924,
+          "sizeKB": "40.0"
+        },
+        "jpg": {
+          "file": "assets/images/gloved_hands_piercing-800w.jpg",
+          "size": 82874,
+          "sizeKB": "80.9"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/standard_sterile_setup.jpg": {
+    "baseName": "standard_sterile_setup",
+    "originalSizeKB": "253.5",
+    "originalDims": "896x1195",
+    "width": 896,
+    "height": 1195,
+    "aspectRatio": "896 / 1195",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJaQAAW+/QTJbP3is21xIAAP65ps6/FmMYG+i38/z3Ksv9yiI+W5LcFCtp73Hl5GVSlN+Z3+5rR7L0Dg8yanoxdNqIz8AAAAA=",
+    "placeholderLen": 179,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/standard_sterile_setup-480w.avif",
+          "size": 9718,
+          "sizeKB": "9.5"
+        },
+        "webp": {
+          "file": "assets/images/standard_sterile_setup-480w.webp",
+          "size": 14882,
+          "sizeKB": "14.5"
+        },
+        "jpg": {
+          "file": "assets/images/standard_sterile_setup-480w.jpg",
+          "size": 29454,
+          "sizeKB": "28.8"
+        },
+        "width": 480,
+        "height": 640
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/standard_sterile_setup-800w.avif",
+          "size": 23330,
+          "sizeKB": "22.8"
+        },
+        "webp": {
+          "file": "assets/images/standard_sterile_setup-800w.webp",
+          "size": 32714,
+          "sizeKB": "31.9"
+        },
+        "jpg": {
+          "file": "assets/images/standard_sterile_setup-800w.jpg",
+          "size": 73228,
+          "sizeKB": "71.5"
+        },
+        "width": 800,
+        "height": 1067
+      }
+    }
+  },
+  "assets/images/artist_1_at_work.jpg": {
+    "baseName": "artist_1_at_work",
+    "originalSizeKB": "860.4",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJaQAAP6uhMXk2M/d2uwAA/roX6rxEFQnqmc+IQ2Hed53bxCnT1uU+8/8cvNDzvTdXHBH8M5e4hHQ4YuJsNkJvnlOfo1TIddwo0x0nzPaw+cfwFHfBK5o98uEFnjYi8Tt6+9to3IAAAA==",
+    "placeholderLen": 223,
+    "isHero": false,
+    "bw": true,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/artist_1_at_work-480w.avif",
+          "size": 27616,
+          "sizeKB": "27.0"
+        },
+        "webp": {
+          "file": "assets/images/artist_1_at_work-480w.webp",
+          "size": 41986,
+          "sizeKB": "41.0"
+        },
+        "jpg": {
+          "file": "assets/images/artist_1_at_work-480w.jpg",
+          "size": 58678,
+          "sizeKB": "57.3"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/artist_1_at_work-800w.avif",
+          "size": 59599,
+          "sizeKB": "58.2"
+        },
+        "webp": {
+          "file": "assets/images/artist_1_at_work-800w.webp",
+          "size": 90396,
+          "sizeKB": "88.3"
+        },
+        "jpg": {
+          "file": "assets/images/artist_1_at_work-800w.jpg",
+          "size": 135370,
+          "sizeKB": "132.2"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/artist_1_work.jpg": {
+    "baseName": "artist_1_work",
+    "originalSizeKB": "140.5",
+    "originalDims": "800x1200",
+    "width": 800,
+    "height": 1200,
+    "aspectRatio": "800 / 1200",
+    "dominantColor": "rgb(24, 24, 24)",
+    "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYwCw7BSoEGQQgIiCXkQAAP53s/XGJI6sY6lkRf7kEXDOBXcADhwSlGceenoVM00lFVzEH5XVqjhosZPETYIh6ITUMYBzhAA=",
+    "placeholderLen": 179,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/artist_1_work-480w.avif",
+          "size": 19151,
+          "sizeKB": "18.7"
+        },
+        "webp": {
+          "file": "assets/images/artist_1_work-480w.webp",
+          "size": 23874,
+          "sizeKB": "23.3"
+        },
+        "jpg": {
+          "file": "assets/images/artist_1_work-480w.jpg",
+          "size": 42919,
+          "sizeKB": "41.9"
+        },
+        "width": 480,
+        "height": 720
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/artist_1_work-800w.avif",
+          "size": 38321,
+          "sizeKB": "37.4"
+        },
+        "webp": {
+          "file": "assets/images/artist_1_work-800w.webp",
+          "size": 44768,
+          "sizeKB": "43.7"
+        },
+        "jpg": {
+          "file": "assets/images/artist_1_work-800w.jpg",
+          "size": 93214,
+          "sizeKB": "91.0"
+        },
+        "width": 800,
+        "height": 1200
+      }
+    }
+  },
+  "assets/images/artist_2_at_work.jpg": {
+    "baseName": "artist_2_at_work",
+    "originalSizeKB": "792.8",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJaQATwBQghNxzNfWll+IAAP2yRZXRwCLuFthNV4oRmIiEGCzn2FcVlib0ZvAnaPKvQWorL+fZC3hdQYOZbxe5LzLtRdRKXZeVdolCflEt9eDu4V+xVaG+O4+N5oUFm/7IneiWylAsoVap4MmvD5T538G+4DvAAAA=",
+    "placeholderLen": 243,
+    "isHero": false,
+    "bw": true,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/artist_2_at_work-480w.avif",
+          "size": 23940,
+          "sizeKB": "23.4"
+        },
+        "webp": {
+          "file": "assets/images/artist_2_at_work-480w.webp",
+          "size": 36030,
+          "sizeKB": "35.2"
+        },
+        "jpg": {
+          "file": "assets/images/artist_2_at_work-480w.jpg",
+          "size": 52903,
+          "sizeKB": "51.7"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/artist_2_at_work-800w.avif",
+          "size": 49334,
+          "sizeKB": "48.2"
+        },
+        "webp": {
+          "file": "assets/images/artist_2_at_work-800w.webp",
+          "size": 72884,
+          "sizeKB": "71.2"
+        },
+        "jpg": {
+          "file": "assets/images/artist_2_at_work-800w.jpg",
+          "size": 117994,
+          "sizeKB": "115.2"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/artist_2_work.jpg": {
+    "baseName": "artist_2_work",
+    "originalSizeKB": "113.9",
+    "originalDims": "800x1200",
+    "width": 800,
+    "height": 1200,
+    "aspectRatio": "800 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJYwC7ACHO9U0Z1EXc9AD+z0tlkhWYO/LC0ttWxSCtsfvtpO/WNKxe2E20/vajITb4JdqGykesQeaM45SoQhSPmOT7WwFnyuceJGcvTgg5TT1dzBMUAAAA",
+    "placeholderLen": 199,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/artist_2_work-480w.avif",
+          "size": 13529,
+          "sizeKB": "13.2"
+        },
+        "webp": {
+          "file": "assets/images/artist_2_work-480w.webp",
+          "size": 16320,
+          "sizeKB": "15.9"
+        },
+        "jpg": {
+          "file": "assets/images/artist_2_work-480w.jpg",
+          "size": 32082,
+          "sizeKB": "31.3"
+        },
+        "width": 480,
+        "height": 720
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/artist_2_work-800w.avif",
+          "size": 27957,
+          "sizeKB": "27.3"
+        },
+        "webp": {
+          "file": "assets/images/artist_2_work-800w.webp",
+          "size": 32908,
+          "sizeKB": "32.1"
+        },
+        "jpg": {
+          "file": "assets/images/artist_2_work-800w.jpg",
+          "size": 73062,
+          "sizeKB": "71.3"
+        },
+        "width": 800,
+        "height": 1200
+      }
+    }
+  },
+  "assets/images/artist_3_portrait.jpg": {
+    "baseName": "artist_3_portrait",
+    "originalSizeKB": "729.2",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJaQAAVPMY8vzoKh4hAAD+mJTXQPrHRKAVkr43RvDfK4EoBZ5Ygy4if7TMXEo5tOxMFuaMS55Rn0Po2adS9GN+vnOxZj6bY2h36ZWbDyHKfFzKLpPhQEdqOht1RmiltxOAAAAA",
+    "placeholderLen": 215,
+    "isHero": false,
+    "bw": true,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/artist_3_portrait-480w.avif",
+          "size": 16756,
+          "sizeKB": "16.4"
+        },
+        "webp": {
+          "file": "assets/images/artist_3_portrait-480w.webp",
+          "size": 23736,
+          "sizeKB": "23.2"
+        },
+        "jpg": {
+          "file": "assets/images/artist_3_portrait-480w.jpg",
+          "size": 40960,
+          "sizeKB": "40.0"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/artist_3_portrait-800w.avif",
+          "size": 35127,
+          "sizeKB": "34.3"
+        },
+        "webp": {
+          "file": "assets/images/artist_3_portrait-800w.webp",
+          "size": 48574,
+          "sizeKB": "47.4"
+        },
+        "jpg": {
+          "file": "assets/images/artist_3_portrait-800w.jpg",
+          "size": 94044,
+          "sizeKB": "91.8"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/artist_3_work.jpg": {
+    "baseName": "artist_3_work",
+    "originalSizeKB": "148.4",
+    "originalDims": "800x1200",
+    "width": 800,
+    "height": 1200,
+    "aspectRatio": "800 / 1200",
+    "dominantColor": "rgb(136, 136, 136)",
+    "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAQBACdASoQABgAPzmGuVOvKSWisAgB4CcJaQAANlzJkJk+rbGppX4UAADM4wD/fCgsOIxPIQ67JZHnVry58NV+VVKmGgtlbg4HJvT2tb6+ZOZ6Li4GsICHvgAF001xPRULHQAA",
+    "placeholderLen": 183,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/artist_3_work-480w.avif",
+          "size": 16252,
+          "sizeKB": "15.9"
+        },
+        "webp": {
+          "file": "assets/images/artist_3_work-480w.webp",
+          "size": 22146,
+          "sizeKB": "21.6"
+        },
+        "jpg": {
+          "file": "assets/images/artist_3_work-480w.jpg",
+          "size": 40084,
+          "sizeKB": "39.1"
+        },
+        "width": 480,
+        "height": 720
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/artist_3_work-800w.avif",
+          "size": 35727,
+          "sizeKB": "34.9"
+        },
+        "webp": {
+          "file": "assets/images/artist_3_work-800w.webp",
+          "size": 48672,
+          "sizeKB": "47.5"
+        },
+        "jpg": {
+          "file": "assets/images/artist_3_work-800w.jpg",
+          "size": 95930,
+          "sizeKB": "93.7"
+        },
+        "width": 800,
+        "height": 1200
+      }
+    }
+  },
+  "assets/images/work/work_tattoo_1.jpg": {
+    "baseName": "work/work_tattoo_1",
+    "originalSizeKB": "714.7",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(184, 136, 104)",
+    "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAQBACdASoQABUAPzmEuVOvKKWisAgB4CcJQBOgAlR3cB26xRWg/RVtwADFCRCgFmw2ieX3yr++/CXizxCk34+5fe05EbtGfOJDf1d24IwyB2PSrzADSUfL8Wt7pLBRdIGQx64XvN3hhqcT8JqWrBPgzndYE6u7yMVgAA==",
+    "placeholderLen": 215,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_1-480w.avif",
+          "size": 13601,
+          "sizeKB": "13.3"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_1-480w.webp",
+          "size": 16232,
+          "sizeKB": "15.9"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_1-480w.jpg",
+          "size": 31854,
+          "sizeKB": "31.1"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_1-800w.avif",
+          "size": 27962,
+          "sizeKB": "27.3"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_1-800w.webp",
+          "size": 33946,
+          "sizeKB": "33.2"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_1-800w.jpg",
+          "size": 73449,
+          "sizeKB": "71.7"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_tattoo_2.jpg": {
+    "baseName": "work/work_tattoo_2",
+    "originalSizeKB": "825.3",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZgCw7BeO9jWPPM8MrOeAAP3tIxYVHqbXMWCwc061vO/F9i/J3mBVU+wtlq+eQ7UewD+e4WnufDOJ5xUsmgoDqnHbq3YzdGkGdvWaWPD/964x+wO+WhhX45dvFKoIgoQP5dRFJ25nBJqCsAuIAAAA",
+    "placeholderLen": 231,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_2-480w.avif",
+          "size": 22101,
+          "sizeKB": "21.6"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_2-480w.webp",
+          "size": 34058,
+          "sizeKB": "33.3"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_2-480w.jpg",
+          "size": 50604,
+          "sizeKB": "49.4"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_2-800w.avif",
+          "size": 47466,
+          "sizeKB": "46.4"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_2-800w.webp",
+          "size": 71362,
+          "sizeKB": "69.7"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_2-800w.jpg",
+          "size": 117398,
+          "sizeKB": "114.6"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_tattoo_3.jpg": {
+    "baseName": "work/work_tattoo_3",
+    "originalSizeKB": "731.9",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZACdMoACjX2o5pi2m2voAPnvzHIr1n4RCPsrfU2dFGRv5d5VfbUq2n0WaruK5EV5eKBVkZHftMcTk2MX+Zcv97HFfhP8XsJFwSOZCx8jJLXfksCwjXKqGOKzh7/ZagiAAA==",
+    "placeholderLen": 215,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_3-480w.avif",
+          "size": 19452,
+          "sizeKB": "19.0"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_3-480w.webp",
+          "size": 26690,
+          "sizeKB": "26.1"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_3-480w.jpg",
+          "size": 43312,
+          "sizeKB": "42.3"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_3-800w.avif",
+          "size": 38029,
+          "sizeKB": "37.1"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_3-800w.webp",
+          "size": 50926,
+          "sizeKB": "49.7"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_3-800w.jpg",
+          "size": 94775,
+          "sizeKB": "92.6"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_tattoo_4.jpg": {
+    "baseName": "work/work_tattoo_4",
+    "originalSizeKB": "778.4",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJQBOmXkBhS1P1TrMLJUGAAP4j6PR2sYYeG163j37Kb2gDeGR+GvFaWHOtYWX1AwQEvxsfUPizmhEurygntT4KgFLtOa0Bk8wtgsst8Mecsqx0t7kr8g0nk7Kkbd2hsfAAAA==",
+    "placeholderLen": 215,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_4-480w.avif",
+          "size": 20948,
+          "sizeKB": "20.5"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_4-480w.webp",
+          "size": 27204,
+          "sizeKB": "26.6"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_4-480w.jpg",
+          "size": 43518,
+          "sizeKB": "42.5"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_4-800w.avif",
+          "size": 43966,
+          "sizeKB": "42.9"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_4-800w.webp",
+          "size": 60578,
+          "sizeKB": "59.2"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_4-800w.jpg",
+          "size": 101608,
+          "sizeKB": "99.2"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_tattoo_5.jpg": {
+    "baseName": "work/work_tattoo_5",
+    "originalSizeKB": "719.7",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJQBOmXkBN3noQhyOoy7AA/sDu9HGWWv21aH75CYzr12TYUx+QKz3mOBfbGrVYqNNNPWSKlaxBkTFan8+dOQ7fckIoOgbiCNgHs1DmjFMlWAYODC0ILcwnW59YoAAA",
+    "placeholderLen": 207,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_5-480w.avif",
+          "size": 17936,
+          "sizeKB": "17.5"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_5-480w.webp",
+          "size": 23596,
+          "sizeKB": "23.0"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_5-480w.jpg",
+          "size": 40569,
+          "sizeKB": "39.6"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_5-800w.avif",
+          "size": 37252,
+          "sizeKB": "36.4"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_5-800w.webp",
+          "size": 46858,
+          "sizeKB": "45.8"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_5-800w.jpg",
+          "size": 91727,
+          "sizeKB": "89.6"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_tattoo_6.jpg": {
+    "baseName": "work/work_tattoo_6",
+    "originalSizeKB": "853.5",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBACdASoQABUAPzmEuVOvKKWisAgB4CcJQBdg7wAR7UYlMTtKguhDSrAA/tnwOsYN5sVFjo4k8tlTnj2HbIr3sQWuxePSCa4cHezmlAG+duzQpZZ5AsaAahIaZCAjG3WLuMErvUUEwjJSA2DRIXqnrcHQ20ISg4oImPRQAAA=",
+    "placeholderLen": 219,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_6-480w.avif",
+          "size": 22409,
+          "sizeKB": "21.9"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_6-480w.webp",
+          "size": 31766,
+          "sizeKB": "31.0"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_6-480w.jpg",
+          "size": 47859,
+          "sizeKB": "46.7"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_6-800w.avif",
+          "size": 53034,
+          "sizeKB": "51.8"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_6-800w.webp",
+          "size": 80550,
+          "sizeKB": "78.7"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_6-800w.jpg",
+          "size": 120833,
+          "sizeKB": "118.0"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_tattoo_7.jpg": {
+    "baseName": "work/work_tattoo_7",
+    "originalSizeKB": "755.0",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(8, 8, 8)",
+    "placeholder": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAABQBACdASoQABUAPzmEuVOvKKWisAgB4CcJZgCdMoACPl3GEzyN16MKJtuQAPauhc7betMgPsY+gv0zYMisJBgDLWy+X8Us7HT7t5dp7dUMCYm/SPsfw9+IOpNduPfTWijgEvBKmQezD2QXxmLWDkNW8erdT6SkMLcH4KP7JBbLs/EOOaZSA/pFdz4AAA==",
+    "placeholderLen": 239,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_7-480w.avif",
+          "size": 20231,
+          "sizeKB": "19.8"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_7-480w.webp",
+          "size": 26450,
+          "sizeKB": "25.8"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_7-480w.jpg",
+          "size": 44980,
+          "sizeKB": "43.9"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_tattoo_7-800w.avif",
+          "size": 40964,
+          "sizeKB": "40.0"
+        },
+        "webp": {
+          "file": "assets/images/work/work_tattoo_7-800w.webp",
+          "size": 49918,
+          "sizeKB": "48.7"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_tattoo_7-800w.jpg",
+          "size": 99163,
+          "sizeKB": "96.8"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_piercing_1.jpg": {
+    "baseName": "work/work_piercing_1",
+    "originalSizeKB": "726.6",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(216, 152, 120)",
+    "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQBACdASoQABUAPzmEuVOvKKWisAgB4CcJZgCdABSr+sy+dQdC+56sAADbjHn/YEXw0whXPpAsugGZrTq0mNlEROSVin3kM1OBIvmgj98+YTYjnaWY0VaqiXji2fO/K5c18ZLvZGb5rkAA",
+    "placeholderLen": 191,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_piercing_1-480w.avif",
+          "size": 17087,
+          "sizeKB": "16.7"
+        },
+        "webp": {
+          "file": "assets/images/work/work_piercing_1-480w.webp",
+          "size": 20094,
+          "sizeKB": "19.6"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_piercing_1-480w.jpg",
+          "size": 36828,
+          "sizeKB": "36.0"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_piercing_1-800w.avif",
+          "size": 34938,
+          "sizeKB": "34.1"
+        },
+        "webp": {
+          "file": "assets/images/work/work_piercing_1-800w.webp",
+          "size": 41420,
+          "sizeKB": "40.4"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_piercing_1-800w.jpg",
+          "size": 85602,
+          "sizeKB": "83.6"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_piercing_2.jpg": {
+    "baseName": "work/work_piercing_2",
+    "originalSizeKB": "679.1",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(216, 168, 136)",
+    "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAACQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJYgCdMoABK1n/+XCeAPxah/C3QCTHWi3DwWria3ewtc/ot/roKZHHpvWMGpvLuoTeKeLEbQz1omQbOGAvaPOiY5mgAA==",
+    "placeholderLen": 175,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_piercing_2-480w.avif",
+          "size": 15507,
+          "sizeKB": "15.1"
+        },
+        "webp": {
+          "file": "assets/images/work/work_piercing_2-480w.webp",
+          "size": 14918,
+          "sizeKB": "14.6"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_piercing_2-480w.jpg",
+          "size": 31197,
+          "sizeKB": "30.5"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_piercing_2-800w.avif",
+          "size": 32718,
+          "sizeKB": "32.0"
+        },
+        "webp": {
+          "file": "assets/images/work/work_piercing_2-800w.webp",
+          "size": 32160,
+          "sizeKB": "31.4"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_piercing_2-800w.jpg",
+          "size": 71254,
+          "sizeKB": "69.6"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_piercing_3.jpg": {
+    "baseName": "work/work_piercing_3",
+    "originalSizeKB": "668.6",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(216, 168, 136)",
+    "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABQBACdASoQABUAPzmGuVOvKSWisAgB4CcJZACdMoADgdqRlJN5rHJQELOAAP2/QbCd60izlzEmSz50iCzO8mR2IYBrlHN9CL3/GjGTTrB3INJ27oeU/P7nZd0xtnwIYEAiSysRZrL15AAA",
+    "placeholderLen": 191,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_piercing_3-480w.avif",
+          "size": 13730,
+          "sizeKB": "13.4"
+        },
+        "webp": {
+          "file": "assets/images/work/work_piercing_3-480w.webp",
+          "size": 14708,
+          "sizeKB": "14.4"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_piercing_3-480w.jpg",
+          "size": 29099,
+          "sizeKB": "28.4"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_piercing_3-800w.avif",
+          "size": 29253,
+          "sizeKB": "28.6"
+        },
+        "webp": {
+          "file": "assets/images/work/work_piercing_3-800w.webp",
+          "size": 30430,
+          "sizeKB": "29.7"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_piercing_3-800w.jpg",
+          "size": 66710,
+          "sizeKB": "65.1"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_piercing_4.jpg": {
+    "baseName": "work/work_piercing_4",
+    "originalSizeKB": "666.9",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(216, 168, 136)",
+    "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwBACdASoQABUAPzmEuVOvKKWisAgB4CcJZACw83gAjrt5g7XdBnJjeAAA/FkRacX4TrbFNh0uNmSRMTRw/N1L2RvQZGQshYBxweyFN2n6S/D/F6vOnJxdWJbLWOcQAAA=",
+    "placeholderLen": 179,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_piercing_4-480w.avif",
+          "size": 13136,
+          "sizeKB": "12.8"
+        },
+        "webp": {
+          "file": "assets/images/work/work_piercing_4-480w.webp",
+          "size": 13044,
+          "sizeKB": "12.7"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_piercing_4-480w.jpg",
+          "size": 26865,
+          "sizeKB": "26.2"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_piercing_4-800w.avif",
+          "size": 27443,
+          "sizeKB": "26.8"
+        },
+        "webp": {
+          "file": "assets/images/work/work_piercing_4-800w.webp",
+          "size": 28434,
+          "sizeKB": "27.8"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_piercing_4-800w.jpg",
+          "size": 61793,
+          "sizeKB": "60.3"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  },
+  "assets/images/work/work_piercing_5.jpg": {
+    "baseName": "work/work_piercing_5",
+    "originalSizeKB": "648.5",
+    "originalDims": "896x1200",
+    "width": 896,
+    "height": 1200,
+    "aspectRatio": "896 / 1200",
+    "dominantColor": "rgb(216, 168, 120)",
+    "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJYgCdAB2fJ5UumGaQgTwAAOD84JS2CKYyHFNQQX+hXBe5aKRRV6vMqaPvbhQqbMAAAA==",
+    "placeholderLen": 151,
+    "isHero": false,
+    "bw": false,
+    "variants": {
+      "480": {
+        "avif": {
+          "file": "assets/images/work/work_piercing_5-480w.avif",
+          "size": 12580,
+          "sizeKB": "12.3"
+        },
+        "webp": {
+          "file": "assets/images/work/work_piercing_5-480w.webp",
+          "size": 11400,
+          "sizeKB": "11.1"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_piercing_5-480w.jpg",
+          "size": 25341,
+          "sizeKB": "24.7"
+        },
+        "width": 480,
+        "height": 643
+      },
+      "800": {
+        "avif": {
+          "file": "assets/images/work/work_piercing_5-800w.avif",
+          "size": 25519,
+          "sizeKB": "24.9"
+        },
+        "webp": {
+          "file": "assets/images/work/work_piercing_5-800w.webp",
+          "size": 26918,
+          "sizeKB": "26.3"
+        },
+        "jpg": {
+          "file": "assets/images/work/work_piercing_5-800w.jpg",
+          "size": 60984,
+          "sizeKB": "59.6"
+        },
+        "width": 800,
+        "height": 1071
+      }
+    }
+  }
+}

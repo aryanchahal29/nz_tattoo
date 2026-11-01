@@ -1,0 +1,19 @@
+# Backups and temporary broken states
+backup-broken-state/
+scratch/
+.superpowers/
+
+# OS and Editor artifacts
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node modules if any
+node_modules/
+dist/
