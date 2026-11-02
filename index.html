@@ -66,6 +66,9 @@
     :root {
       --ivory: #F5F5F7;
       --bone: #F5F5F7;
+      /* Readability Text Variables */
+      --text-body: #2B2824; /* secondary and body text on light backgrounds, about 13:1 contrast on #F5F5F7 */
+      --text-label: #0E0C0B; /* eyebrow labels on light backgrounds */
       --ink: #0E0C0B;
       --oxblood: #5A0F1B;
       --crimson: #B5121B;
@@ -242,12 +245,29 @@
     .eyebrow {
       display: inline-block;
       font-family: var(--font-body);
-      font-size: 1rem; /* 16px */
+      font-size: 18px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--ash);
+      color: var(--text-label);
+      opacity: 1;
       margin-bottom: 0.75rem;
+    }
+
+    @media (max-width: 767px) {
+      .eyebrow {
+        font-size: 17px;
+      }
+    }
+
+    /* Eyebrows on dark backgrounds */
+    .disciplines-section .eyebrow,
+    .gallery-heading-group .eyebrow,
+    .reviews-section .eyebrow,
+    .booking-left-col .eyebrow,
+    .site-footer .eyebrow {
+      color: #F5F5F7 !important;
+      opacity: 1 !important;
     }
 
     .section-title {
@@ -1453,7 +1473,7 @@
     }
 
     .gallery-heading-group .eyebrow {
-      color: var(--brass);
+      color: #F5F5F7;
     }
 
     .gallery-rail-container {
@@ -2242,7 +2262,10 @@
     /* Tattoo Panel: --ink, ivory text, 12px inset brass frame */
     .pricing-panel-tattoo {
       background-color: var(--ink);
-      color: var(--ivory);
+      color: #F5F5F7;
+    }
+    .pricing-panel-tattoo .pricing-panel-title {
+      color: #F5F5F7 !important;
     }
 
     .pricing-panel-tattoo::after {
@@ -3899,6 +3922,258 @@
         animation: none !important;
       }
     }
+  
+    /* ==========================================================================
+       TEXT READABILITY SYSTEM (High-contrast 40+ Reader Optimization)
+       ========================================================================== */
+
+    /* 1. Body and Descriptive Paragraphs on Light Backgrounds */
+    .intro-body-text,
+    .standard-intro-line,
+    .spec-copy,
+    .process-step-desc,
+    .pricing-header-intro,
+    .pricing-piercing-intro,
+    .guide-subline,
+    .policy-desc,
+    .faq-answer-text,
+    .tile-desc,
+    .lightbox-desc,
+    .success-message {
+      font-size: 20px !important;
+      line-height: 1.65 !important;
+      color: var(--text-body) !important;
+      font-weight: 400 !important;
+      opacity: 1 !important;
+    }
+
+    @media (max-width: 767px) {
+      .intro-body-text,
+      .standard-intro-line,
+      .spec-copy,
+      .process-step-desc,
+      .pricing-header-intro,
+      .pricing-piercing-intro,
+      .guide-subline,
+      .policy-desc,
+      .faq-answer-text,
+      .tile-desc,
+      .lightbox-desc,
+      .success-message {
+        font-size: 18px !important;
+      }
+    }
+
+    .process-step-desc {
+      max-width: 100% !important;
+    }
+
+    /* 2. Body Text on Dark Backgrounds */
+    .hero-subline,
+    .discipline-desc,
+    .pricing-tier-desc,
+    .review-quote,
+    .booking-consult-note,
+    .footer-desc {
+      color: #F5F5F7 !important;
+      font-size: 20px !important;
+      line-height: 1.65 !important;
+      font-weight: 400 !important;
+      opacity: 1 !important;
+    }
+
+    @media (max-width: 767px) {
+      .hero-subline,
+      .discipline-desc,
+      .pricing-tier-desc,
+      .review-quote,
+      .booking-consult-note,
+      .footer-desc {
+        font-size: 18px !important;
+      }
+    }
+
+    /* 3. Small Meta Text and Captions (minimum 16px, weight 500 where uppercase) */
+    .intro-img-caption,
+    .standard-photo-caption,
+    .artist-meta-row,
+    .artist-discipline,
+    .artist-portfolio-link,
+    .pricing-deposit-chip,
+    .pricing-tier-tag,
+    .piercing-upgrade-note,
+    .guide-result-meta,
+    .guide-footnote,
+    .slider-stop-btn,
+    .counter-label,
+    .chip-label,
+    .ref-dropzone-hint,
+    .ref-dropzone-text,
+    .form-error-inline,
+    .checkbox-label-text,
+    .summary-item-row,
+    .summary-edit-link,
+    .step-indicator-text,
+    .step-label-name,
+    .trust-chip,
+    .lightbox-cat,
+    .lightbox-details,
+    .loader-meta-left,
+    .loader-counter,
+    .brand-tagline,
+    .guide-eyebrow,
+    .review-author {
+      font-size: 16px !important;
+      opacity: 1 !important;
+    }
+
+    /* Meta colors on light backgrounds */
+    .intro-img-caption,
+    .standard-photo-caption,
+    .artist-meta-row,
+    .counter-label,
+    .piercing-upgrade-note,
+    .guide-result-meta,
+    .guide-footnote,
+    .guide-meta-dot,
+    .ref-dropzone-hint,
+    .ref-dropzone-text,
+    .checkbox-label-text,
+    .summary-item-row,
+    .lightbox-details {
+      color: var(--text-body) !important;
+    }
+
+    /* Scrolled / Open Header Tagline on Light */
+    .site-header.is-scrolled .brand-tagline,
+    .site-header.menu-open .brand-tagline {
+      color: var(--text-body) !important;
+    }
+
+    /* Uppercase meta text weight 500 */
+    .intro-img-caption,
+    .standard-photo-caption,
+    .artist-meta-row,
+    .artist-discipline,
+    .artist-portfolio-link,
+    .pricing-deposit-chip,
+    .pricing-tier-tag,
+    .slider-stop-btn,
+    .counter-label,
+    .chip-label,
+    .step-indicator-text,
+    .step-label-name,
+    .trust-chip,
+    .lightbox-cat,
+    .footer-live-status,
+    .loader-meta-left,
+    .brand-tagline {
+      font-weight: 500 !important;
+    }
+
+    /* Guide eyebrow */
+    .guide-eyebrow {
+      font-size: 18px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.12em !important;
+      color: var(--text-label) !important;
+    }
+    @media (max-width: 767px) {
+      .guide-eyebrow {
+        font-size: 17px !important;
+      }
+    }
+
+    /* 4. Muted Text on Dark Backgrounds (no lower than rgba(245, 245, 247, 0.88)) */
+    .pricing-nzd,
+    .booking-direct-contact,
+    .footer-col-text,
+    .footer-social-link,
+    .loader-meta-left {
+      color: rgba(245, 245, 247, 0.88) !important;
+      font-size: 16px !important;
+      opacity: 1 !important;
+    }
+
+    /* Work Tile Captions on Dark */
+    .work-tile-caption,
+    .pricing-deposit-chip {
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      color: #F5F5F7 !important;
+      opacity: 1 !important;
+    }
+
+    /* Review Author */
+    .review-author {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.08em !important;
+    }
+
+    /* Footer Copyright Line: strictly 15px per exception */
+    .footer-copy,
+    .footer-copy * {
+      font-size: 15px !important;
+      color: rgba(245, 245, 247, 0.88) !important;
+    }
+
+    .footer-dir-link,
+    .footer-enquiry-link,
+    .footer-live-status,
+    .back-to-top,
+    .btn-send-another,
+    .review-stars,
+    .btn-outline-ivory {
+      font-size: 16px !important;
+    }
+
+    .back-to-top {
+      color: #F5F5F7 !important;
+      opacity: 1 !important;
+    }
+
+    .artist-meta-row span {
+      font-size: 16px !important;
+      color: var(--text-body) !important;
+    }
+
+    /* 5. Forms: Input & Textarea 18px, Placeholder #5C5750 (~6.6:1), Field Labels 16px weight 600 */
+    .form-input,
+    .form-select,
+    .form-textarea {
+      font-size: 18px !important;
+      color: var(--ink) !important;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder,
+    input::placeholder,
+    textarea::placeholder {
+      color: #5C5750 !important;
+      opacity: 1 !important;
+    }
+
+    .form-label {
+      font-size: 16px !important;
+      font-weight: 600 !important;
+      color: var(--text-label) !important;
+    }
+
+    /* 6. Layout Safeguards (Step 3: Keep layouts intact) */
+    .artist-meta-row {
+      flex-wrap: wrap !important;
+      gap: 0.35rem 0.65rem !important;
+    }
+
+    .guide-slider-labels {
+      width: 100%;
+    }
+
+    .slider-stop-btn {
+      padding: 0.4rem 0.35rem !important;
+    }
+
   </style>
 </head>
 <body>
@@ -3927,7 +4202,7 @@
       </div>
     </div>
 
-    <div class="loader-meta-left" id="loaderMetaLeft" style="position:absolute;bottom:24px;left:clamp(1.5rem,4vw,3rem);font-family:var(--font-body);font-size:14px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245, 245, 247, 0.7);z-index:2;opacity:0;">
+    <div class="loader-meta-left" id="loaderMetaLeft" style="position:absolute;bottom:24px;left:clamp(1.5rem,4vw,3rem);font-family:var(--font-body);font-size:16px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245, 245, 247, 0.88);z-index:2;opacity:0;">
       Tattoo & Piercing &middot; Christchurch &middot; Est. 2012
     </div>
 
@@ -4004,7 +4279,7 @@
     </nav>
     <div>
       <a href="#booking" class="btn" style="width: 100%;" onclick="closeMobileMenu()">Book a consult</a>
-      <p style="font-size: 0.9375rem; color: var(--ash); margin-top: 1.5rem; text-align: center;">
+      <p style="font-size: 16px; color: var(--text-body); line-height: 1.65; margin-top: 1.5rem; text-align: center;">
         248 Oxford Terrace, Christchurch<br>
         Tuesday – Saturday · 11am – 7pm
       </p>
@@ -4607,7 +4882,7 @@
                 <div class="artist-discipline">Fine Line & Illustrative Botanical</div>
                 <div class="artist-meta-row">
                   <span>14 Years Experience</span>
-                  <span style="color: var(--crimson); font-weight: 600;">Booking Dec / Jan</span>
+                  <span style="color: var(--text-body); font-weight: 600; font-size: 16px;">Booking Dec / Jan</span>
                 </div>
               </div>
               <div>
@@ -4648,7 +4923,7 @@
                 <div class="artist-discipline">Bold Blackwork & Heavy Geometry</div>
                 <div class="artist-meta-row">
                   <span>9 Years Experience</span>
-                  <span style="color: var(--crimson); font-weight: 600;">Booking Dec / Jan</span>
+                  <span style="color: var(--text-body); font-weight: 600; font-size: 16px;">Booking Dec / Jan</span>
                 </div>
               </div>
               <div>
@@ -4689,7 +4964,7 @@
                 <div class="artist-discipline">Ear Curation & Precision Body Piercing</div>
                 <div class="artist-meta-row">
                   <span>8 Years Experience</span>
-                  <span style="color: var(--crimson); font-weight: 600;">Booking Tuesday – Saturday</span>
+                  <span style="color: var(--text-body); font-weight: 600; font-size: 16px;">Booking Tuesday – Saturday</span>
                 </div>
               </div>
               <div>
@@ -4964,7 +5239,7 @@
         <div class="reviews-header">
           <div class="reviews-stars-top">★★★★★</div>
           <h2 class="section-title reviews-heading"><span id="reviewsCountVal" data-to="4.9">4.9</span> ON GOOGLE &middot; 180+ REVIEWS</h2>
-          <p style="font-size: 1.125rem; color: rgba(245, 245, 247, 0.85);">
+          <p style="font-size: 20px; color: #F5F5F7; line-height: 1.65; opacity: 1;">
             Unedited feedback from clients across Christchurch and New Zealand.
           </p>
         </div>
@@ -5130,7 +5405,7 @@
 
           <!-- Left Column (5/12, Sticky) -->
           <div class="booking-left-col">
-            <span class="eyebrow" style="color: var(--brass);">Book a consult</span>
+            <span class="eyebrow" style="color: #F5F5F7;">Book a consult</span>
             <h2 class="booking-left-heading font-heading">
               LET'S MAKE SOMETHING
               <span class="font-script">to keep</span>
@@ -5562,7 +5837,7 @@
                   <div class="enquiry-summary-box">
                     <div class="summary-title-row">
                       <span class="summary-title">Enquiry Summary</span>
-                      <span style="font-size: 0.8125rem; color: var(--ash);">Review before sending</span>
+                      <span style="font-size: 16px; color: var(--text-body); font-weight: 500;">Review before sending</span>
                     </div>
 
                     <div class="summary-item-row">
@@ -5624,7 +5899,7 @@
               <div class="enquiry-summary-box" style="text-align: left; max-width: 480px; margin: 0 auto 2rem;">
                 <div class="summary-title-row">
                   <span class="summary-title">Submission Details</span>
-                  <span style="font-size: 0.8125rem; color: var(--crimson); font-weight: 600;" id="submittedTimestamp">RECEIVED</span>
+                  <span style="font-size: 16px; color: var(--crimson); font-weight: 600;" id="submittedTimestamp">RECEIVED</span>
                 </div>
                 <div class="summary-item-row">
                   <span>Enquiry ID:</span>
@@ -5655,7 +5930,7 @@
   <div class="mobile-booking-bar" id="mobileBookingBar">
     <div>
       <div style="font-family: var(--font-heading); font-size: 1.15rem; line-height: 1; text-transform: uppercase; color: var(--ink);">Black Heron</div>
-      <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ash);">Christchurch Central</div>
+      <div style="font-size: 16px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-body); font-weight: 500;">Christchurch Central</div>
     </div>
     <a href="#booking" class="btn" style="height: 40px; padding: 0 1.25rem; font-size: 0.8125rem;">Book Consult</a>
   </div>
