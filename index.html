@@ -3963,6 +3963,81 @@
       padding: 0.4rem 0.35rem !important;
     }
 
+    /* ==========================================================================
+       MOBILE PERFORMANCE & STRUCTURE OPTIMIZATIONS (<= 768px)
+       Snappy instant open, zero scroll lag, 100% structured typography on phones
+       ========================================================================== */
+    @media (max-width: 768px) {
+      /* 1. Instant visibility & structure for hero and header */
+      .site-header {
+        opacity: 1 !important;
+        transform: translateY(0);
+      }
+      .site-header.is-hidden {
+        transform: translateY(-100%) !important;
+      }
+      .hero-content {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .hero-heading {
+        opacity: 1 !important;
+      }
+      .hero-script-word {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .hero-circular-badge {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      /* 2. Structured text on mobile: disable hidden/clipped translateY & clip-path pop-in */
+      .reveal-line-wrap {
+        overflow: visible !important;
+      }
+      .reveal-line {
+        display: inline !important;
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+      }
+      .clip-reveal-frame {
+        clip-path: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+      }
+
+      /* 3. GPU fill-rate protection: eliminate expensive chained shader filters during touch scroll */
+      img {
+        filter: none !important;
+        transition: none !important;
+      }
+      .work-tile-img,
+      .intro-photo--colour,
+      .artist-portrait-img,
+      .artist-work-hover-img,
+      .panel-photo--tattoo-colour {
+        filter: none !important;
+      }
+
+      /* 4. Touch button & bounds safety: avoid overflow on narrow screens (320px - 390px) */
+      .btn-outline-ivory {
+        max-width: 100% !important;
+        width: auto !important;
+        padding: 0.65rem 1rem !important;
+        font-size: 14px !important;
+        white-space: normal !important;
+        text-align: center !important;
+        word-break: break-word !important;
+      }
+
+      /* 5. Smooth touch momentum scrolling */
+      body {
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -4003,6 +4078,22 @@
       0%
     </div>
   </div>
+  <script>
+    (function() {
+      if (window.innerWidth <= 768) {
+        var l = document.getElementById('siteLoader');
+        if (l) {
+          l.style.pointerEvents = 'none';
+          setTimeout(function() {
+            if (l && l.style.display !== 'none') {
+              l.style.opacity = '0';
+              setTimeout(function() { l.style.display = 'none'; }, 200);
+            }
+          }, 350);
+        }
+      }
+    })();
+  </script>
   <noscript>
     <style>#siteLoader { display: none !important; } .site-header { opacity: 1 !important; transform: none !important; } .hero-content { opacity: 1 !important; transform: none !important; }</style>
   </noscript>
@@ -5729,6 +5820,27 @@
         return;
       }
 
+      // Snappy instant open for mobile: reveal content and dismiss loader immediately without lag
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        if (loader) {
+          loader.style.pointerEvents = 'none';
+          gsap.to(loader, {
+            opacity: 0,
+            duration: 0.2,
+            ease: 'power2.out',
+            onComplete: finishLoading
+          });
+        }
+        gsap.set('.site-header', { opacity: 1, y: 0 });
+        gsap.set('.hero-content', { opacity: 1 });
+        gsap.set('.hero-bg-img', { scale: 1 });
+        gsap.set('.hero-circular-badge', { opacity: 1, scale: 1 });
+        gsap.set('.hero-heading .reveal-line', { y: '0%', opacity: 1 });
+        gsap.set('.hero-script-word', { opacity: 1, scale: 1 });
+        return;
+      }
+
       if (prefersReduced) {
         gsap.to(loader, {
           opacity: 0,
@@ -5755,14 +5867,13 @@
       const shutterBottom = document.getElementById('loaderShutterBottom');
       const wordmark = document.getElementById('loaderWordmark');
 
-      // Real Loading: waits for fonts and decoded hero image, snappy on mobile (~0.9s), luxury 2.4s on desktop
-      const isMobile = window.innerWidth <= 768;
+      // Desktop Luxury Loading: waits for fonts and decoded hero image (2.4s)
       const heroImg = new Image();
-      heroImg.src = isMobile ? 'assets/images/hero-colour-800w.webp' : 'assets/images/hero-colour.webp';
+      heroImg.src = 'assets/images/hero-colour.webp';
       const heroDecodePromise = (heroImg.decode ? heroImg.decode() : Promise.resolve()).catch(() => {});
-      const fontsPromise = (document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, isMobile ? 500 : 2500))]) : Promise.resolve());
-      const minTimerPromise = new Promise(resolve => setTimeout(resolve, isMobile ? 350 : 2400));
-      const heroTimeout = new Promise(resolve => setTimeout(resolve, isMobile ? 600 : 4000));
+      const fontsPromise = (document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 2500))]) : Promise.resolve());
+      const minTimerPromise = new Promise(resolve => setTimeout(resolve, 2400));
+      const heroTimeout = new Promise(resolve => setTimeout(resolve, 4000));
       const heroReadyPromise = Promise.race([heroDecodePromise, heroTimeout]);
 
       let progressVal = 0;
@@ -5976,19 +6087,21 @@
       const inkEdge = document.getElementById('heroInkEdge');
       if (!hero) return;
 
-      // Pinned Hero Scale & Fade
-      gsap.to('.hero-bg-img', {
-        scale: 1.15,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: hero,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-          pin: true,
-          pinSpacing: false
-        }
-      });
+      // Pinned Hero Scale & Fade (Desktop only >= 768px for silky smooth native touch scroll without mobile viewport jitter)
+      if (window.innerWidth >= 768) {
+        gsap.to('.hero-bg-img', {
+          scale: 1.15,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: hero,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+            pin: true,
+            pinSpacing: false
+          }
+        });
+      }
 
       // Ink Edge Scrubbed Rise (Desktop only >= 768px)
       if (inkEdge && window.innerWidth >= 768) {
@@ -6061,18 +6174,20 @@
       }
       renderMarquee();
 
-      // Velocity reactive speed boost
-      ScrollTrigger.create({
-        trigger: document.body,
-        start: 'top top',
-        end: 'bottom bottom',
-        onUpdate: (self) => {
-          const v = Math.abs(self.getVelocity());
-          if (v > 50) {
-            scrollBoost = Math.min(v * 0.006, 12);
+      // Velocity reactive speed boost (Desktop only >= 768px to avoid main-thread drag during mobile touch scrolling)
+      if (window.innerWidth >= 768) {
+        ScrollTrigger.create({
+          trigger: document.body,
+          start: 'top top',
+          end: 'bottom bottom',
+          onUpdate: (self) => {
+            const v = Math.abs(self.getVelocity());
+            if (v > 50) {
+              scrollBoost = Math.min(v * 0.006, 12);
+            }
           }
-        }
-      });
+        });
+      }
     }
 
     // 8. Atelier Philosophy: Animated Counters (Robust with en-NZ format & 2.5s failsafe)
