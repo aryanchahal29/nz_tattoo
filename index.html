@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#0E0C0B">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%228%22 fill=%22%230E0C0B%22/%3E%3Ctext x=%2232%22 y=%2244%22 font-family=%22'Anton', sans-serif%22 font-size=%2236%22 fill=%22%23F7F2EA%22 text-anchor=%22middle%22 letter-spacing=%221%22%3EBH%3C/text%3E%3Ccircle cx=%2250%22 cy=%2218%22 r=%224%22 fill=%22%23B5121B%22/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%228%22 fill=%22%230E0C0B%22/%3E%3Ctext x=%2232%22 y=%2244%22 font-family=%22'Anton', sans-serif%22 font-size=%2236%22 fill=%22%23FFFFFF%22 text-anchor=%22middle%22 letter-spacing=%221%22%3EBH%3C/text%3E%3Ccircle cx=%2250%22 cy=%2218%22 r=%224%22 fill=%22%23B5121B%22/%3E%3C/svg%3E">
 
   <!-- Open Graph / Meta -->
   <meta property="og:title" content="Black Heron Tattoo & Piercing | Christchurch">
@@ -64,8 +64,8 @@
        DESIGN TOKENS & SYSTEM RESET
        ========================================================================== */
     :root {
-      --ivory: #F7F2EA;
-      --bone: #EDE4D6;
+      --ivory: #FFFFFF;
+      --bone: #FFFFFF;
       --ink: #0E0C0B;
       --oxblood: #5A0F1B;
       --crimson: #B5121B;
@@ -206,7 +206,7 @@
     }
 
     .hero-bg-img {
-      filter: grayscale(1) sepia(0.12) contrast(1.1) brightness(0.85) !important;
+      filter: none !important;
     }
 
     /* Selected Work Section Images: FULL COLOR ONLY */
@@ -341,7 +341,7 @@
     .btn-outline {
       background-color: transparent;
       color: var(--ivory);
-      border: 1px solid rgba(247, 242, 234, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.6);
     }
 
     .btn-outline::before {
@@ -492,7 +492,7 @@
       font-size: 14px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(247, 243, 235, 0.7);
+      color: rgba(255, 255, 255, 0.7);
       z-index: 2;
       opacity: 0;
     }
@@ -503,7 +503,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background: rgba(247, 243, 235, 0.1);
+      background: rgba(255, 255, 255, 0.1);
       z-index: 2;
     }
 
@@ -1470,7 +1470,7 @@
       flex: 0 0 calc(min(58svh, 560px) * 0.75);
       height: min(58svh, 560px);
       aspect-ratio: 3 / 4;
-      border: 1px solid rgba(247, 242, 234, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.7);
       border-radius: 0;
       position: relative;
       overflow: hidden;
@@ -2277,7 +2277,7 @@
 
     .pricing-tattoo-block {
       padding: 1.75rem 0;
-      border-bottom: 1px solid rgba(247, 243, 235, 0.15);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
@@ -2318,14 +2318,14 @@
     .pricing-nzd {
       font-family: var(--font-body);
       font-size: 0.95rem;
-      color: rgba(247, 243, 235, 0.6);
+      color: rgba(255, 255, 255, 0.6);
       font-weight: 500;
       letter-spacing: 0.08em;
     }
 
     .pricing-tier-desc {
       font-size: 17px;
-      color: rgba(247, 243, 235, 0.78);
+      color: rgba(255, 255, 255, 0.78);
       line-height: 1.45;
       margin: 0;
     }
@@ -2438,88 +2438,269 @@
       margin: 0;
     }
 
-    /* Custom Native Range Slider */
+    /* "A rough guide" Interactive Price Slider Redesign */
     .guide-slider-wrap {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
+    .slider-track-area {
+      position: relative;
+      width: 100%;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    /* 1. Track: 4px tall, base colour ink at 15% opacity, inset by half column (10%) on each side */
+    .slider-track-line {
+      position: absolute;
+      left: 10%;
+      width: 80%;
+      height: 4px;
+      background-color: rgba(14, 12, 11, 0.15);
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Crimson fill up to the handle */
+    .slider-track-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: calc(var(--pos, 1) * 25%);
+      background-color: var(--crimson);
+      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+
+    .guide-slider-wrap.is-dragging .slider-track-fill {
+      transition: none;
+    }
+
+    /* Five small notches: 12px tall, 1px wide at each stop */
+    .slider-notches {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .slider-notch {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 1px;
+      height: 12px;
+      background-color: rgba(14, 12, 11, 0.3);
+      transition: background-color 0.25s ease;
+    }
+
+    .slider-notch.is-passed {
+      background-color: var(--crimson);
+    }
+
+    /* 2. Handle: button-like block, 56x56 (48x48 on phones), 0 radius, ink fill, 1px brass frame inset by 4px */
+    .slider-handle {
+      position: absolute;
+      top: 50%;
+      left: calc(10% + var(--pos, 1) * 20%);
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      background-color: var(--ink);
+      border-radius: 0;
+      box-shadow: 0 8px 20px rgba(14, 12, 11, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      pointer-events: none;
+      transition: left 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.15s ease;
+      will-change: left, transform;
+    }
+
+    .slider-handle-frame {
+      position: absolute;
+      inset: 4px;
+      border: 1px solid var(--brass);
+      pointer-events: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .slider-handle-chevrons {
+      display: block;
+      width: 14px;
+      height: 10px;
+      pointer-events: none;
+    }
+
+    /* 3. Handle states */
+    @media (hover: hover) {
+      .guide-slider-wrap:hover .slider-handle {
+        transform: translate(-50%, calc(-50% - 2px));
+      }
+      .guide-slider-wrap:hover .slider-handle-frame {
+        border-color: var(--crimson);
+      }
+    }
+
+    .guide-slider-wrap.is-dragging .slider-handle,
+    .guide-range-input:active ~ .slider-handle {
+      transform: translate(-50%, -50%) scale(0.96) !important;
+      transition: none !important;
+    }
+
+    /* Keyboard focus: 3px brass ring with 3px offset around handle */
+    .guide-range-input:focus-visible ~ .slider-handle {
+      outline: 3px solid var(--brass);
+      outline-offset: 3px;
+    }
+
+    /* Nudge hint keyframes */
+    @keyframes sliderHandleNudge {
+      0% { transform: translate(-50%, -50%); }
+      50% { transform: translate(calc(-50% + 8px), -50%); }
+      100% { transform: translate(-50%, -50%); }
+    }
+
+    .slider-handle.hint-nudge {
+      animation: sliderHandleNudge 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1;
+    }
+
+    /* Native transparent range input stretched over whole track and handle area */
     .guide-range-input {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 56px;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 4;
+      margin: 0;
+      padding: 0;
+      touch-action: pan-y;
       -webkit-appearance: none;
       appearance: none;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(to right, var(--crimson) var(--slider-pct, 25%), var(--ink) var(--slider-pct, 25%));
-      outline: none;
-      cursor: pointer;
-      margin: 12px 0;
     }
 
-    .guide-range-input::-webkit-slider-runnable-track {
-      height: 2px;
-      background: linear-gradient(to right, var(--crimson) var(--slider-pct, 25%), var(--ink) var(--slider-pct, 25%));
-    }
-
-    .guide-range-input::-moz-range-track {
-      height: 2px;
-      background: linear-gradient(to right, var(--crimson) var(--slider-pct, 25%), var(--ink) var(--slider-pct, 25%));
-    }
-
-    /* Square brass thumb with no glow */
     .guide-range-input::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 18px;
-      height: 18px;
-      background: var(--brass);
-      border-radius: 0;
-      border: none;
-      box-shadow: none;
-      cursor: pointer;
-      margin-top: -8px;
-      transition: transform 0.15s ease;
+      width: 56px;
+      height: 56px;
     }
 
     .guide-range-input::-moz-range-thumb {
-      width: 18px;
-      height: 18px;
-      background: var(--brass);
-      border-radius: 0;
+      width: 56px;
+      height: 56px;
       border: none;
-      box-shadow: none;
-      cursor: pointer;
-      transition: transform 0.15s ease;
     }
 
-    .guide-range-input:focus-visible::-webkit-slider-thumb {
-      outline: 2px solid var(--ink);
+    /* 5. Alignment: 5-column grid with equal columns for labels row */
+    .guide-slider-labels {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0;
+      width: 100%;
+      margin-top: 1.25rem;
+    }
+
+    /* 6. Labels: real <button type="button"> elements */
+    .slider-stop-btn {
+      min-width: 0;
+      min-height: 48px;
+      border: 1px solid rgba(14, 12, 11, 0.2);
+      border-radius: 0;
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.15;
+      padding: 0.4rem 0.2rem;
+      margin: 0 4px;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      outline: none;
+    }
+
+
+
+    .slider-stop-btn.is-selected {
+      background-color: var(--ink);
+      color: #FFFFFF;
+      border-color: var(--ink);
+    }
+
+    .slider-stop-btn:focus-visible {
+      outline: 2px solid var(--brass);
       outline-offset: 2px;
     }
 
-    .guide-slider-stops {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .slider-stop-label {
-      font-size: 0.825rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ash);
-      font-weight: 500;
-    }
-
-    @media (max-width: 640px) {
-      .slider-stop-label:nth-child(2),
-      .slider-stop-label:nth-child(4) {
-        display: none;
+    @media (hover: hover) {
+      .slider-stop-btn:hover:not(.is-selected) {
+        border-color: var(--ink);
       }
-      .slider-stop-label {
-        font-size: 0.75rem;
-        letter-spacing: 0.05em;
+    }
+
+    /* 7. Phones (under 768px) */
+    @media (max-width: 768px) {
+      .slider-track-area {
+        height: 48px;
+      }
+      .guide-range-input {
+        height: 48px;
+      }
+      .slider-handle {
+        width: 48px;
+        height: 48px;
+      }
+      .guide-slider-labels {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 1rem;
+      }
+      .slider-stop-btn {
+        min-height: 44px;
+        font-size: 15px;
+        padding: 0.55rem 0.85rem;
+        flex: 1 1 calc(33.333% - 8px);
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slider-stop-btn {
+        flex: 1 1 calc(50% - 8px);
+      }
+      .slider-stop-btn:last-child {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slider-handle,
+      .slider-track-fill {
+        transition-duration: 0.01ms !important;
+      }
+      .slider-handle.hint-nudge {
+        animation: none !important;
       }
     }
 
@@ -2666,7 +2847,7 @@
 
     .review-card {
       flex: 0 0 clamp(320px, 28vw, 440px);
-      background-color: rgba(247, 242, 234, 0.05);
+      background-color: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(184, 151, 90, 0.3);
       padding: 1.75rem;
       display: flex;
@@ -2678,7 +2859,7 @@
     .review-quote {
       font-size: 1.0625rem;
       line-height: 1.6;
-      color: rgba(247, 242, 234, 0.92);
+      color: rgba(255, 255, 255, 0.92);
       font-style: italic;
       margin-bottom: 1.25rem;
     }
@@ -2854,7 +3035,7 @@
       gap: 1rem;
       font-size: 1.125rem;
       line-height: 1.45;
-      color: rgba(247, 242, 234, 0.95);
+      color: rgba(255, 255, 255, 0.95);
     }
 
     .booking-step-dot {
@@ -2874,7 +3055,7 @@
     }
 
     .trust-chip {
-      background-color: rgba(247, 242, 234, 0.1);
+      background-color: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(184, 151, 90, 0.4);
       color: var(--ivory);
       padding: 0.45rem 0.9rem;
@@ -2886,7 +3067,7 @@
 
     .booking-direct-contact {
       font-size: 0.9375rem;
-      color: rgba(247, 242, 234, 0.7);
+      color: rgba(255, 255, 255, 0.7);
       border-top: 1px solid rgba(184, 151, 90, 0.3);
       padding-top: 1.5rem;
     }
@@ -3183,7 +3364,7 @@
 
     .ref-dropzone.dragover {
       border-color: var(--ink);
-      background-color: rgba(247, 242, 234, 0.9);
+      background-color: rgba(255, 255, 255, 0.9);
     }
 
     .ref-dropzone-text {
@@ -3410,7 +3591,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      background-color: rgba(247, 242, 234, 0.96);
+      background-color: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(10px);
       border-top: 1px solid var(--line);
       padding: 0.85rem 1.25rem;
@@ -3458,7 +3639,7 @@
       flex-wrap: wrap;
       gap: 2rem;
       padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(247, 242, 234, 0.15);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
       margin-bottom: 3rem;
     }
 
@@ -3505,7 +3686,7 @@
       grid-template-columns: 1fr;
       gap: 2.5rem;
       padding-bottom: clamp(3rem, 5vw, 4.5rem);
-      border-bottom: 1px solid rgba(247, 242, 234, 0.15);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     @media (min-width: 640px) and (max-width: 1023px) {
@@ -3515,7 +3696,7 @@
       }
       .footer-col:nth-child(2),
       .footer-col:nth-child(4) {
-        border-left: 1px solid rgba(247, 242, 234, 0.15);
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
         padding-left: 1.5rem;
       }
     }
@@ -3526,7 +3707,7 @@
         gap: 1.5rem;
       }
       .footer-col:not(:first-child) {
-        border-left: 1px solid rgba(247, 242, 234, 0.15);
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
         padding-left: clamp(1.25rem, 2vw, 2rem);
       }
     }
@@ -3543,7 +3724,7 @@
     .footer-col-text {
       font-size: 1.0625rem; /* 17px */
       line-height: 1.6;
-      color: rgba(247, 242, 234, 0.8);
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .footer-dir-link,
@@ -3609,7 +3790,7 @@
       gap: 0.65rem;
       font-size: 1.0625rem;
       font-weight: 500;
-      color: rgba(247, 242, 234, 0.8);
+      color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
       transition: color 0.3s;
     }
@@ -3644,9 +3825,9 @@
       flex-wrap: wrap;
       gap: 1rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(247, 242, 234, 0.15);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
       font-size: 0.9375rem; /* 15px */
-      color: rgba(247, 242, 234, 0.6);
+      color: rgba(255, 255, 255, 0.6);
       position: relative;
       z-index: 2;
     }
@@ -3709,11 +3890,11 @@
       </div>
     </div>
 
-    <div class="loader-meta-left" id="loaderMetaLeft" style="position:absolute;bottom:24px;left:clamp(1.5rem,4vw,3rem);font-family:var(--font-body);font-size:14px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(247,243,235,0.7);z-index:2;opacity:0;">
+    <div class="loader-meta-left" id="loaderMetaLeft" style="position:absolute;bottom:24px;left:clamp(1.5rem,4vw,3rem);font-family:var(--font-body);font-size:14px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255, 255, 255,0.7);z-index:2;opacity:0;">
       Tattoo & Piercing &middot; Christchurch &middot; Est. 2012
     </div>
 
-    <div class="loader-progress-wrap" style="position:absolute;bottom:0;left:0;width:100%;height:2px;background:rgba(247,243,235,0.1);z-index:2;">
+    <div class="loader-progress-wrap" style="position:absolute;bottom:0;left:0;width:100%;height:2px;background:rgba(255, 255, 255,0.1);z-index:2;">
       <div class="loader-progress-bar" id="loaderProgressBar" style="width:0%;height:100%;background-color:var(--brass);transform-origin:left;"></div>
     </div>
 
@@ -3799,13 +3980,13 @@
     <section class="hero-section" id="hero">
       <div class="hero-bg-wrap">
         <img 
-          src="assets/images/hero_bg.jpg" 
-          srcset="assets/images/hero_bg-480w.webp 480w, assets/images/hero_bg-800w.webp 800w, assets/images/hero_bg-1200w.webp 1200w, assets/images/hero_bg-1600w.webp 1600w, assets/images/hero_bg.jpg 1920w"
+          src="assets/images/hero-colour.webp" 
+          srcset="assets/images/hero-colour-480w.webp 480w, assets/images/hero-colour-800w.webp 800w, assets/images/hero-colour-1200w.webp 1200w, assets/images/hero-colour.webp 1920w"
           sizes="100vw"
-          alt="Black and white private tattoo atelier in Christchurch with focused task lighting" 
+          alt="Portrait of tattooed woman with visible nose, ear, and dermal piercings in natural studio light" 
           class="hero-bg-img"
           width="1920" 
-          height="1080"
+          height="1280"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -3844,7 +4025,7 @@
           <circle cx="80" cy="80" r="76" fill="none" stroke="#B8975A" stroke-width="1" stroke-dasharray="2 3" opacity="0.6"/>
           <circle cx="80" cy="80" r="48" fill="#0E0C0B" stroke="#B8975A" stroke-width="1"/>
           <polygon points="80,68 83,77 92,80 83,83 80,92 77,83 68,80 77,77" fill="#B5121B"/>
-          <text font-family="'Barlow', sans-serif" font-size="11" font-weight="600" letter-spacing="0.22em" fill="#F7F2EA" text-transform="uppercase">
+          <text font-family="'Barlow', sans-serif" font-size="11" font-weight="600" letter-spacing="0.22em" fill="#FFFFFF" text-transform="uppercase">
             <textPath href="#badgeCirclePath" startOffset="0%">
               TATTOO · PIERCING · CHRISTCHURCH · EST. 2012 ·
             </textPath>
@@ -3855,8 +4036,8 @@
       <!-- Organic Ink-Edge SVG Transition -->
       <div class="hero-ink-edge-wrap" id="heroInkEdge">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="none" class="hero-ink-edge-svg" aria-hidden="true">
-          <path d="M0,70 C160,130 320,10 480,85 C640,150 800,20 960,80 C1120,140 1280,30 1440,75 L1440,180 L0,180 Z" fill="#F7F2EA"/>
-          <path d="M0,100 C200,150 400,60 600,120 C800,170 1000,50 1200,110 C1320,140 1390,90 1440,110 L1440,180 L0,180 Z" fill="#F7F2EA" opacity="0.6"/>
+          <path d="M0,70 C160,130 320,10 480,85 C640,150 800,20 960,80 C1120,140 1280,30 1440,75 L1440,180 L0,180 Z" fill="#FFFFFF"/>
+          <path d="M0,100 C200,150 400,60 600,120 C800,170 1000,50 1200,110 C1320,140 1390,90 1440,110 L1440,180 L0,180 Z" fill="#FFFFFF" opacity="0.6"/>
         </svg>
       </div>
     </section>
@@ -4664,24 +4845,47 @@
             <p class="guide-subline">Slide to see a price range for your piece.</p>
           </div>
 
-          <div class="guide-slider-wrap">
-            <input 
-              type="range" 
-              min="0" 
-              max="4" 
-              step="1" 
-              value="1" 
-              class="guide-range-input" 
-              id="guideRangeInput" 
-              aria-label="Tattoo size rough price range"
-              aria-valuetext="Palm-sized: 2 to 3 hours, $400 - $750"
-            >
-            <div class="guide-slider-stops" aria-hidden="true">
-              <span class="slider-stop-label">Small</span>
-              <span class="slider-stop-label">Palm</span>
-              <span class="slider-stop-label">Forearm</span>
-              <span class="slider-stop-label">Full day</span>
-              <span class="slider-stop-label">Half sleeve</span>
+          <div class="guide-slider-wrap" id="guideSliderWrap" style="--pos: 1;">
+            <div class="slider-track-area" id="sliderTrackArea">
+              <div class="slider-track-line">
+                <div class="slider-track-fill" id="sliderTrackFill"></div>
+              </div>
+              
+              <div class="slider-notches" aria-hidden="true">
+                <span class="slider-notch is-passed" data-index="0" style="left: 10%;"></span>
+                <span class="slider-notch is-passed" data-index="1" style="left: 30%;"></span>
+                <span class="slider-notch" data-index="2" style="left: 50%;"></span>
+                <span class="slider-notch" data-index="3" style="left: 70%;"></span>
+                <span class="slider-notch" data-index="4" style="left: 90%;"></span>
+              </div>
+
+              <div class="slider-handle" id="sliderHandle" aria-hidden="true">
+                <div class="slider-handle-frame"></div>
+                <svg class="slider-handle-chevrons" width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+                  <path d="M5 1L1 5L5 9" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
+                  <path d="M9 1L13 5L9 9" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
+                </svg>
+              </div>
+
+              <input 
+                type="range" 
+                min="0" 
+                max="4" 
+                step="1" 
+                value="1" 
+                class="guide-range-input" 
+                id="guideRangeInput" 
+                aria-label="Tattoo size rough price range"
+                aria-valuetext="Palm-sized: 2 to 3 hours, $400 - $750"
+              >
+            </div>
+
+            <div class="guide-slider-labels" id="guideSliderLabels" role="group" aria-label="Tattoo size options">
+              <button type="button" class="slider-stop-btn" data-index="0" aria-pressed="false">Small</button>
+              <button type="button" class="slider-stop-btn is-selected" data-index="1" aria-pressed="true">Palm</button>
+              <button type="button" class="slider-stop-btn" data-index="2" aria-pressed="false">Forearm</button>
+              <button type="button" class="slider-stop-btn" data-index="3" aria-pressed="false">Full day</button>
+              <button type="button" class="slider-stop-btn" data-index="4" aria-pressed="false">Half sleeve</button>
             </div>
           </div>
 
@@ -4723,7 +4927,7 @@
         <div class="reviews-header">
           <div class="reviews-stars-top">★★★★★</div>
           <h2 class="section-title reviews-heading"><span id="reviewsCountVal" data-to="4.9">4.9</span> ON GOOGLE &middot; 180+ REVIEWS</h2>
-          <p style="font-size: 1.125rem; color: rgba(247, 242, 234, 0.85);">
+          <p style="font-size: 1.125rem; color: rgba(255, 255, 255, 0.85);">
             Unedited feedback from clients across Christchurch and New Zealand.
           </p>
         </div>
@@ -5575,7 +5779,7 @@
       // Real Loading: waits for fonts and decoded hero image, snappy on mobile (~0.9s), luxury 2.4s on desktop
       const isMobile = window.innerWidth <= 768;
       const heroImg = new Image();
-      heroImg.src = isMobile ? 'assets/images/hero_bg-800w.webp' : 'assets/images/hero_bg.jpg';
+      heroImg.src = isMobile ? 'assets/images/hero-colour-800w.webp' : 'assets/images/hero-colour.webp';
       const heroDecodePromise = (heroImg.decode ? heroImg.decode() : Promise.resolve()).catch(() => {});
       const fontsPromise = (document.fonts ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, isMobile ? 500 : 2500))]) : Promise.resolve());
       const minTimerPromise = new Promise(resolve => setTimeout(resolve, isMobile ? 350 : 2400));
@@ -6353,12 +6557,16 @@
         pricingObserver.observe(pricingSection);
       }
 
-      // Interactive Native Range Slider ("A rough guide")
+      // Interactive Native Range Slider ("A rough guide" Redesign)
+      const wrap = document.getElementById('guideSliderWrap');
+      const trackArea = document.getElementById('sliderTrackArea');
       const slider = document.getElementById('guideRangeInput');
       const sizeEl = document.getElementById('guideResultSize');
       const timeEl = document.getElementById('guideResultTime');
       const priceEl = document.getElementById('guideResultPrice');
       const resultBlock = document.getElementById('guideResultBlock');
+      const notches = document.querySelectorAll('.slider-notch');
+      const labelBtns = document.querySelectorAll('.slider-stop-btn');
 
       const stops = [
         { name: 'Small, under 5 cm', time: '1 hour', price: 'from $180' },
@@ -6368,34 +6576,147 @@
         { name: 'Half sleeve', time: '8 to 10 hours over two sessions', price: '$1,600 - $2,500' }
       ];
 
-      function updateSlider() {
+      let lastActiveIndex = parseInt(slider ? slider.value : 1, 10);
+
+      function updateSlider(isDraggingContinuous = false, continuousPos = null) {
         if (!slider || !sizeEl || !timeEl || !priceEl) return;
         const idx = parseInt(slider.value, 10);
         const data = stops[idx] || stops[0];
 
-        // Update fill percentage
-        const pct = (idx / (stops.length - 1)) * 100;
-        slider.style.setProperty('--slider-pct', pct + '%');
-        slider.style.background = `linear-gradient(to right, var(--crimson) ${pct}%, var(--ink) ${pct}%)`;
+        // Update CSS variable --pos
+        if (wrap) {
+          if (isDraggingContinuous && continuousPos !== null) {
+            wrap.style.setProperty('--pos', continuousPos);
+          } else {
+            wrap.style.setProperty('--pos', idx);
+          }
+        }
+
+        // Update notches
+        notches.forEach((notch) => {
+          const nIdx = parseInt(notch.getAttribute('data-index'), 10);
+          notch.classList.toggle('is-passed', nIdx <= idx);
+        });
+
+        // Update label buttons
+        labelBtns.forEach((btn) => {
+          const bIdx = parseInt(btn.getAttribute('data-index'), 10);
+          const isSelected = bIdx === idx;
+          btn.classList.toggle('is-selected', isSelected);
+          btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+        });
 
         // Accessible aria-valuetext
         slider.setAttribute('aria-valuetext', `${data.name}: ${data.time}, ${data.price}`);
 
-        // 0.3s cross-fade
-        if (resultBlock) {
-          resultBlock.style.opacity = '0.3';
-          setTimeout(() => {
-            sizeEl.textContent = data.name;
-            timeEl.textContent = data.time;
-            priceEl.textContent = data.price;
-            resultBlock.style.opacity = '1';
-          }, 150);
+        // Cross-fade result block only when the active stop index changes
+        if (lastActiveIndex !== idx) {
+          lastActiveIndex = idx;
+          if (resultBlock) {
+            resultBlock.style.opacity = '0.3';
+            setTimeout(() => {
+              sizeEl.textContent = data.name;
+              timeEl.textContent = data.time;
+              priceEl.textContent = data.price;
+              resultBlock.style.opacity = '1';
+            }, 150);
+          }
         }
       }
 
-      if (slider) {
-        slider.addEventListener('input', updateSlider);
-        updateSlider(); // Initial state
+      if (slider && wrap && trackArea) {
+        // Native input change / keyboard navigation
+        slider.addEventListener('input', () => {
+          if (!isPointerDown) {
+            updateSlider(false);
+          }
+        });
+
+        slider.addEventListener('change', () => {
+          updateSlider(false);
+        });
+
+        // Label buttons click
+        labelBtns.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const stopIdx = parseInt(btn.getAttribute('data-index'), 10);
+            if (parseInt(slider.value, 10) !== stopIdx) {
+              slider.value = stopIdx;
+              updateSlider(false);
+              slider.dispatchEvent(new Event('input', { bubbles: true }));
+              slider.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+          });
+        });
+
+        // Pointer drag & click-to-jump on track area
+        let isPointerDown = false;
+
+        function getStopFromPointer(e) {
+          const rect = trackArea.getBoundingClientRect();
+          const trackLeft = rect.left + rect.width * 0.10;
+          const trackWidth = rect.width * 0.80;
+          const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+          const ratio = Math.max(0, Math.min(1, (clientX - trackLeft) / trackWidth));
+          const continuousPos = ratio * 4;
+          const nearestStop = Math.round(continuousPos);
+          return { continuousPos, nearestStop };
+        }
+
+        trackArea.addEventListener('pointerdown', (e) => {
+          // If clicked directly on native input, allow native focus
+          isPointerDown = true;
+          try { trackArea.setPointerCapture(e.pointerId); } catch (err) {}
+          wrap.classList.add('is-dragging');
+          const { continuousPos, nearestStop } = getStopFromPointer(e);
+          slider.value = nearestStop;
+          updateSlider(true, continuousPos);
+          slider.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+
+        trackArea.addEventListener('pointermove', (e) => {
+          if (!isPointerDown) return;
+          const { continuousPos, nearestStop } = getStopFromPointer(e);
+          slider.value = nearestStop;
+          updateSlider(true, continuousPos);
+          slider.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+
+        function endPointerDrag(e) {
+          if (!isPointerDown) return;
+          isPointerDown = false;
+          try { trackArea.releasePointerCapture(e.pointerId); } catch (err) {}
+          wrap.classList.remove('is-dragging');
+          wrap.style.setProperty('--pos', slider.value);
+          updateSlider(false);
+          slider.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+
+        trackArea.addEventListener('pointerup', endPointerDrag);
+        trackArea.addEventListener('pointercancel', endPointerDrag);
+
+        // Hint nudge when slider scrolls into view (not under prefers-reduced-motion)
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced && 'IntersectionObserver' in window) {
+          const hintObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                hintObserver.disconnect();
+                const handleEl = document.getElementById('sliderHandle');
+                if (handleEl) {
+                  handleEl.classList.add('hint-nudge');
+                  handleEl.addEventListener('animationend', () => {
+                    handleEl.classList.remove('hint-nudge');
+                  }, { once: true });
+                }
+              }
+            });
+          }, { threshold: 0.35 });
+          hintObserver.observe(wrap);
+        }
+
+        // Initialize state on load
+        updateSlider(false);
       }
     }
 

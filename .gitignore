@@ -1,5 +1,5 @@
 # Backups and temporary broken states
-backup-broken-state/
+backup-*/
 scratch/
 .superpowers/
 
