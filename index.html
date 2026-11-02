@@ -1697,210 +1697,6 @@
     }
 
     /* ==========================================================================
-       SECTION 7: THE STANDARD (ITEM 2: CRAFTED EDITORIAL SPEC SHEET ON BONE)
-       ========================================================================== */
-    .standard-section {
-      background-color: var(--bone);
-      color: var(--ink);
-      padding: var(--section-pad) 0;
-      position: relative;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .standard-split-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(2.5rem, 5vw, 5rem);
-      align-items: center;
-    }
-
-    @media (min-width: 1024px) {
-      .standard-split-grid {
-        grid-template-columns: 5fr 7fr;
-      }
-    }
-
-    /* Left Column (5/12): Sterile Photo with 16px Offset Brass Frame & Rotating Seal */
-    .standard-photo-column {
-      position: relative;
-      padding: 0 16px 16px 0;
-    }
-
-    .standard-photo-wrap {
-      position: relative;
-      width: 100%;
-    }
-
-    .standard-brass-frame {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      width: 100%;
-      height: 100%;
-      border: 1px solid var(--brass);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .standard-img-container {
-      position: relative;
-      z-index: 2;
-      aspect-ratio: 3 / 4;
-      overflow: hidden;
-      background-color: var(--ink);
-    }
-
-    .standard-setup-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: contrast(1.05) saturate(1.05); /* Only contrast and saturate, no sepia, darkening or tint */
-      transform: scale(1.06);
-      will-change: transform;
-    }
-
-    /* Rotating seal removed */
-
-    .standard-photo-caption {
-      margin-top: 1.5rem;
-      font-size: 0.95rem;
-      color: var(--ash);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .standard-caption-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--brass);
-      display: inline-block;
-    }
-
-    /* Right Column (7/12): Editorial Spec Sheet */
-    .standard-content-column {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .standard-intro-line {
-      font-size: 1.25rem; /* 20px */
-      line-height: 1.5;
-      color: var(--ash);
-      margin-bottom: 2.5rem;
-      max-width: 52ch;
-    }
-
-    /* 4 Full-Width Spec Rows separated by 1px hairlines */
-    .standard-spec-table {
-      width: 100%;
-      border-top: 1px solid var(--line);
-    }
-
-    .standard-spec-row {
-      position: relative;
-      display: grid;
-      grid-template-columns: 140px 1fr 32px;
-      align-items: center;
-      gap: 1.5rem;
-      padding: 1.75rem 1.5rem;
-      border-bottom: 1px solid var(--line);
-      background-color: transparent;
-      transition: background-color 0.3s ease;
-      cursor: default;
-    }
-
-    @media (max-width: 640px) {
-      .standard-spec-row {
-        grid-template-columns: 100px 1fr 24px;
-        gap: 1rem;
-        padding: 1.5rem 0.75rem;
-      }
-    }
-
-    /* 3px crimson bar draws down left edge on hover */
-    .standard-spec-row::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background-color: var(--crimson);
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: transform 0.3s var(--ease-editorial);
-    }
-
-    .standard-spec-row:hover {
-      background-color: var(--ivory);
-    }
-
-    .standard-spec-row:hover::before {
-      transform: scaleY(1);
-    }
-
-    .spec-figure-wrap {
-      overflow: hidden;
-    }
-
-    .spec-figure {
-      font-family: var(--font-heading);
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
-      color: var(--ink);
-      line-height: 0.95;
-      display: inline-block;
-      letter-spacing: -0.02em;
-    }
-
-    .spec-text-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .spec-title {
-      font-family: var(--font-heading);
-      font-size: 24px;
-      color: var(--ink);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      line-height: 1.1;
-      margin: 0;
-    }
-
-    .spec-copy {
-      font-family: var(--font-body);
-      font-size: 18px;
-      color: var(--ash);
-      line-height: 1.45;
-      margin: 0;
-      max-width: 44ch;
-    }
-
-    /* Small crimson arrow that slides in on hover */
-    .spec-arrow {
-      color: var(--crimson);
-      opacity: 0;
-      transform: translateX(-10px);
-      transition: opacity 0.3s var(--ease-editorial), transform 0.3s var(--ease-editorial);
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-
-    .standard-spec-row:hover .spec-arrow {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* ==========================================================================
        SECTION 8: RESIDENT ARTISTS (ITEM 4: 3 IN ONE ROW, HEIGHT <= 52SVH)
        ========================================================================== */
     .artists-section {
@@ -3929,8 +3725,6 @@
 
     /* 1. Body and Descriptive Paragraphs on Light Backgrounds */
     .intro-body-text,
-    .standard-intro-line,
-    .spec-copy,
     .process-step-desc,
     .pricing-header-intro,
     .pricing-piercing-intro,
@@ -3949,8 +3743,6 @@
 
     @media (max-width: 767px) {
       .intro-body-text,
-      .standard-intro-line,
-      .spec-copy,
       .process-step-desc,
       .pricing-header-intro,
       .pricing-piercing-intro,
@@ -3995,7 +3787,6 @@
 
     /* 3. Small Meta Text and Captions (minimum 16px, weight 500 where uppercase) */
     .intro-img-caption,
-    .standard-photo-caption,
     .artist-meta-row,
     .artist-discipline,
     .artist-portfolio-link,
@@ -4029,7 +3820,6 @@
 
     /* Meta colors on light backgrounds */
     .intro-img-caption,
-    .standard-photo-caption,
     .artist-meta-row,
     .counter-label,
     .piercing-upgrade-note,
@@ -4052,7 +3842,6 @@
 
     /* Uppercase meta text weight 500 */
     .intro-img-caption,
-    .standard-photo-caption,
     .artist-meta-row,
     .artist-discipline,
     .artist-portfolio-link,
@@ -4248,7 +4037,6 @@
           <li><a href="#disciplines" class="nav-link">Tattoo</a></li>
           <li><a href="#disciplines" class="nav-link">Piercing</a></li>
           <li><a href="#work" class="nav-link">Work</a></li>
-          <li><a href="#standards" class="nav-link">The Standard</a></li>
           <li><a href="#artists" class="nav-link">Artists</a></li>
           <li><a href="#pricing" class="nav-link">Pricing</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
@@ -4272,7 +4060,6 @@
       <a href="#disciplines" class="mobile-nav-link" onclick="closeMobileMenu()">Tattoo</a>
       <a href="#disciplines" class="mobile-nav-link" onclick="closeMobileMenu()">Piercing</a>
       <a href="#work" class="mobile-nav-link" onclick="closeMobileMenu()">Work</a>
-      <a href="#standards" class="mobile-nav-link" onclick="closeMobileMenu()">The Standard</a>
       <a href="#artists" class="mobile-nav-link" onclick="closeMobileMenu()">Artists</a>
       <a href="#pricing" class="mobile-nav-link" onclick="closeMobileMenu()">Pricing</a>
       <a href="#faq" class="mobile-nav-link" onclick="closeMobileMenu()">FAQ</a>
@@ -4502,7 +4289,7 @@
           </div>
 
           <!-- Body Piercing Panel -->
-          <div class="discipline-panel" onclick="window.location.hash='standards'">
+          <div class="discipline-panel" onclick="window.location.hash='pricing'">
             <div class="discipline-bg-wrap">
               <img 
                 src="assets/images/discipline_piercing.jpg" 
@@ -4526,7 +4313,7 @@
                 Anatomically tailored ear curations, facial, and oral piercings. Medical single-needle aseptic technique and pre-sterilised implant-grade titanium or solid 14k gold.
               </p>
               <div class="discipline-link">
-                <span>Learn Clinical Standard</span>
+                <span>View Pricing</span>
                 <span class="discipline-arrow">&rarr;</span>
               </div>
             </div>
@@ -4715,126 +4502,6 @@
         </div>
       </div>
     </div>
-
-    <!-- SECTION 7: THE STANDARD (ITEM 2: EDITORIAL SPEC SHEET ON BONE) -->
-    <section class="standard-section" id="standards">
-      <div class="container">
-        <div class="standard-split-grid">
-
-          <!-- Left Column (5/12): Sterile Setup Photo with 16px Offset Brass Frame & 140px Rotating Seal -->
-          <div class="standard-photo-column">
-            <div class="standard-photo-wrap">
-              <div class="standard-brass-frame" aria-hidden="true"></div>
-              <div class="standard-img-container clip-reveal-frame" id="standardImgFrame">
-                <img 
-                  src="assets/images/standard_sterile_setup.jpg" 
-                  srcset="assets/images/standard_sterile_setup-480w.webp 480w, assets/images/standard_sterile_setup-800w.webp 800w, assets/images/standard_sterile_setup.jpg 896w"
-                  sizes="(max-width: 768px) 100vw, 500px"
-                  alt="Sterile surgical tray with sealed single-use tattoo needles, forceps, and implant-grade titanium body jewellery" 
-                  class="standard-setup-img"
-                  width="896"
-                  height="1195"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </div>
-
-
-            </div>
-
-            <div class="standard-photo-caption">
-              <span class="standard-caption-dot"></span>
-              <span>Opened in front of you</span>
-            </div>
-          </div>
-
-          <!-- Right Column (7/12): Left-aligned Editorial Spec Sheet (4 Full-Width Rows) -->
-          <div class="standard-content-column">
-            <span class="eyebrow">The standard</span>
-            <h2 class="section-title">
-              <span class="reveal-line-wrap"><span class="reveal-line">NO SHORTCUTS.</span></span>
-            </h2>
-            <p class="standard-intro-line">
-              Four promises we keep with every client, every time.
-            </p>
-
-            <!-- 4 Full-Width Spec Rows separated by 1px hairlines -->
-            <div class="standard-spec-table">
-
-              <!-- Row 1: ZERO -->
-              <div class="standard-spec-row" id="specRow1">
-                <div class="spec-figure-wrap">
-                  <span class="spec-figure">ZERO</span>
-                </div>
-                <div class="spec-text-wrap">
-                  <h3 class="spec-title">Reused needles</h3>
-                  <p class="spec-copy">Every needle and cartridge is opened in front of you.</p>
-                </div>
-                <div class="spec-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </div>
-
-              <!-- Row 2: F-136 -->
-              <div class="standard-spec-row" id="specRow2">
-                <div class="spec-figure-wrap">
-                  <span class="spec-figure">F-136</span>
-                </div>
-                <div class="spec-text-wrap">
-                  <h3 class="spec-title">Implant-grade metal</h3>
-                  <p class="spec-copy">Titanium, niobium and solid gold only. No nickel.</p>
-                </div>
-                <div class="spec-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </div>
-
-              <!-- Row 3: 1 : 1 -->
-              <div class="standard-spec-row" id="specRow3">
-                <div class="spec-figure-wrap">
-                  <span class="spec-figure">1 : 1</span>
-                </div>
-                <div class="spec-text-wrap">
-                  <h3 class="spec-title">One artist, one client</h3>
-                  <p class="spec-copy">Every tattoo is drawn for your body, every piercing placed for your anatomy.</p>
-                </div>
-                <div class="spec-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </div>
-
-              <!-- Row 4: 6 MO -->
-              <div class="standard-spec-row" id="specRow4">
-                <div class="spec-figure-wrap">
-                  <span class="spec-figure">6 MO</span>
-                </div>
-                <div class="spec-text-wrap">
-                  <h3 class="spec-title">Free touch-up</h3>
-                  <p class="spec-copy">One complimentary touch-up within six months of your session.</p>
-                </div>
-                <div class="spec-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
     <!-- SECTION 8: RESIDENT ARTISTS (ITEM 4: 3 IN ONE ROW, HEIGHT <= 52SVH) -->
     <section class="artists-section" id="artists">
@@ -6568,7 +6235,7 @@
       }
 
       // Refresh ScrollTrigger when images load
-      const railImgs = document.querySelectorAll('.work-tile-img, .standard-setup-img');
+      const railImgs = document.querySelectorAll('.work-tile-img');
       railImgs.forEach(img => {
         if (!img.complete) {
           img.addEventListener('load', () => ScrollTrigger.refresh());
@@ -6619,67 +6286,6 @@
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeLightbox();
       });
-    }
-
-    // 10. The Standard: Spec Sheet Stagger & Rotating Circular Seal
-    function initTheStandard() {
-      const stdSection = document.getElementById('standards');
-      const rows = document.querySelectorAll('.standard-spec-row');
-      
-      function revealStandardRows() {
-        if (stdSection && stdSection.dataset.revealed) return;
-        if (stdSection) stdSection.dataset.revealed = 'true';
-
-        rows.forEach((row, idx) => {
-          const fig = row.querySelector('.spec-figure');
-          if (fig) {
-            gsap.fromTo(fig, 
-              { yPercent: 100, opacity: 0 }, 
-              { yPercent: 0, opacity: 1, duration: 0.8, delay: idx * 0.1, ease: 'power3.out' }
-            );
-          }
-          gsap.fromTo(row,
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.8, delay: idx * 0.1, ease: 'power2.out' }
-          );
-        });
-
-        const stdFrame = document.getElementById('standardImgFrame');
-        if (stdFrame) stdFrame.classList.add('is-inview');
-      }
-
-      if (stdSection) {
-        ScrollTrigger.create({
-          trigger: stdSection,
-          start: 'top 85%',
-          once: true,
-          onEnter: revealStandardRows
-        });
-
-        // Gentle parallax on sterile setup photo
-        gsap.to('.standard-setup-img', {
-          yPercent: 12,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: stdSection,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-          }
-        });
-
-        if ('IntersectionObserver' in window) {
-          const stdObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-              revealStandardRows();
-              stdObserver.disconnect();
-            }
-          }, { threshold: 0.1 });
-          stdObserver.observe(stdSection);
-        }
-      }
-
-
     }
 
     // 11. Resident Artists (ITEM 4: 3 Columns in One Row, No Sticky Stacking)
@@ -7473,7 +7079,6 @@
       initCounters();
       initWorkRail();
       initLightbox();
-      initTheStandard();
       initArtistsReveal();
       initProcessLine();
       initPricing();
