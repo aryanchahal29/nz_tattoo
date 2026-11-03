@@ -2691,7 +2691,7 @@
       margin-top: 0.25rem;
     }
 
-    /* Block C: Policy Blocks (Unchanged) */
+    /* Block C: Policy Block (Compacted) */
     .policies-two-col {
       display: grid;
       grid-template-columns: 1fr;
@@ -2706,13 +2706,19 @@
       }
     }
 
+    .policies-compact {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+
     .policy-title {
       font-family: var(--font-heading);
       font-size: 1.25rem;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: var(--ink);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
     }
 
     .policy-desc {
@@ -2723,12 +2729,12 @@
     }
 
     /* ==========================================================================
-       SECTION 11: REVIEWS (INK BAND, 2 DRIFTING ROWS, BRASS STARS)
+       SECTION 11: REVIEWS (INK BAND, COMPACT SINGLE ROW SLIDER, BRASS ACCENTS)
        ========================================================================== */
     .reviews-section {
       background-color: var(--ink);
       color: var(--ivory);
-      padding: var(--section-pad) 0;
+      padding: clamp(2.5rem, 4.5vw, 4.25rem) 0; /* Reduced vertical padding by ~45% */
       position: relative;
       overflow: hidden;
       border-top: 1px solid rgba(184, 151, 90, 0.4);
@@ -2737,69 +2743,106 @@
 
     .reviews-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 1.75rem;
     }
 
-    .reviews-heading {
-      color: var(--ivory);
-      font-size: clamp(2.4rem, 5vw, 4rem);
-    }
-
-    .reviews-stars-top {
-      display: flex;
+    .reviews-compact-line {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      gap: 0.35rem;
-      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      font-family: var(--font-heading);
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      margin: 0;
+    }
+
+    .reviews-stars-compact {
       color: var(--brass);
-      font-size: 1.25rem;
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+      margin-right: 0.2rem;
     }
 
-    .reviews-drift-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+    .reviews-dot {
+      color: var(--brass);
+      opacity: 0.7;
+    }
+
+    .google-g-badge {
+      display: inline-block;
+      vertical-align: -2px;
+      margin-left: 0.25rem;
+      flex-shrink: 0;
+    }
+
+    .reviews-slider-wrap {
+      position: relative;
       width: 100%;
-      overflow: hidden;
     }
 
-    .reviews-drift-row {
+    .reviews-slider-track {
       display: flex;
       gap: 1.5rem;
-      width: max-content;
-      will-change: transform;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.5rem 0 0.75rem 0;
+      scrollbar-width: none;
     }
 
-    .reviews-drift-row:hover {
-      animation-play-state: paused !important;
-    }
-
-    .drift-left {
-      animation: driftLeft 40s linear infinite;
-    }
-
-    .drift-right {
-      animation: driftRight 40s linear infinite;
-    }
-
-    @keyframes driftLeft {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    @keyframes driftRight {
-      from { transform: translateX(-50%); }
-      to { transform: translateX(0); }
+    .reviews-slider-track::-webkit-scrollbar {
+      display: none;
     }
 
     .review-card {
-      flex: 0 0 clamp(320px, 28vw, 440px);
+      flex: 0 0 clamp(280px, 80vw, 320px);
+      scroll-snap-align: start;
       background-color: rgba(245, 245, 247, 0.05);
       border: 1px solid rgba(184, 151, 90, 0.3);
-      padding: 1.75rem;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       backdrop-filter: blur(8px);
+      box-sizing: border-box;
+      border-radius: 2px;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .review-card:hover {
+      border-color: rgba(184, 151, 90, 0.6);
+      transform: translateY(-2px);
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .review-card {
+        flex: 0 0 calc((100% - 1.5rem) / 2);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .review-card {
+        flex: 0 0 calc((100% - 3rem) / 3);
+        max-width: calc((100% - 3rem) / 3);
+      }
+    }
+
+    .review-card-top {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .review-stars {
+      color: var(--brass);
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
     }
 
     .review-quote {
@@ -2807,23 +2850,144 @@
       line-height: 1.6;
       color: rgba(245, 245, 247, 0.92);
       font-style: italic;
-      margin-bottom: 1.25rem;
+      margin: 0 0 1.25rem 0;
     }
 
-    .review-stars {
-      color: var(--brass);
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
+    .review-footer-row {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      border-top: 1px solid rgba(184, 151, 90, 0.25);
+      padding-top: 0.85rem;
+      margin-top: auto;
     }
 
-    .review-author {
+    .review-avatar-frame {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid rgba(184, 151, 90, 0.45);
+      background-color: rgba(245, 245, 247, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .review-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .review-avatar-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #F5F5F7;
+      text-transform: uppercase;
+      border-radius: 50%;
+    }
+
+    .avatar-bg-1 { background-color: #5C3E36; }
+    .avatar-bg-2 { background-color: #2A4356; }
+    .avatar-bg-3 { background-color: #3B4A3A; }
+    .avatar-bg-4 { background-color: #4A354E; }
+    .avatar-bg-5 { background-color: #5A4526; }
+
+    .review-author-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      min-width: 0;
+    }
+
+    .review-author-name {
       font-size: 0.9375rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      letter-spacing: 0.05em;
       color: var(--brass);
-      border-top: 1px solid rgba(184, 151, 90, 0.25);
-      padding-top: 0.75rem;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .review-suburb {
+      font-weight: 400;
+      color: rgba(245, 245, 247, 0.85);
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+
+    .review-date {
+      font-size: 0.8125rem;
+      color: rgba(245, 245, 247, 0.6);
+      letter-spacing: 0.02em;
+    }
+
+    .reviews-nav-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .reviews-nav-btn {
+      background: rgba(245, 245, 247, 0.06);
+      border: 1px solid rgba(184, 151, 90, 0.4);
+      color: var(--ivory);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s, border-color 0.2s, transform 0.15s;
+    }
+
+    .reviews-nav-btn:hover {
+      background: rgba(184, 151, 90, 0.25);
+      border-color: var(--brass);
+      color: var(--ivory);
+      transform: scale(1.05);
+    }
+
+    .reviews-nav-btn:active {
+      transform: scale(0.95);
+    }
+
+    .reviews-dots {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .review-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(245, 245, 247, 0.25);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+      padding: 0;
+    }
+
+    .review-dot.active {
+      width: 22px;
+      border-radius: 4px;
+      background: var(--brass);
     }
 
     /* ==========================================================================
@@ -4202,8 +4366,8 @@
           <li><a href="#disciplines" class="nav-link">Tattoo</a></li>
           <li><a href="#disciplines" class="nav-link">Piercing</a></li>
           <li><a href="#work" class="nav-link">Work</a></li>
-          <li><a href="#artists" class="nav-link">Artists</a></li>
           <li><a href="#pricing" class="nav-link">Pricing</a></li>
+          <li><a href="#artists" class="nav-link">Artists</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
       </nav>
@@ -4225,8 +4389,8 @@
       <a href="#disciplines" class="mobile-nav-link" onclick="closeMobileMenu()">Tattoo</a>
       <a href="#disciplines" class="mobile-nav-link" onclick="closeMobileMenu()">Piercing</a>
       <a href="#work" class="mobile-nav-link" onclick="closeMobileMenu()">Work</a>
-      <a href="#artists" class="mobile-nav-link" onclick="closeMobileMenu()">Artists</a>
       <a href="#pricing" class="mobile-nav-link" onclick="closeMobileMenu()">Pricing</a>
+      <a href="#artists" class="mobile-nav-link" onclick="closeMobileMenu()">Artists</a>
       <a href="#faq" class="mobile-nav-link" onclick="closeMobileMenu()">FAQ</a>
     </nav>
     <div>
@@ -4382,10 +4546,7 @@
                 decoding="async"
               >
             </div>
-            <div class="intro-img-caption">
-              <span>Piercing room</span>
-              <span>Oxford Terrace, Christchurch</span>
-            </div>
+
           </div>
 
           <div class="intro-text-col">
@@ -4395,7 +4556,7 @@
               <span class="reveal-line-wrap"><span class="reveal-line">AT A TIME.</span></span>
             </h2>
             <p class="intro-body-text">
-              We operate an appointment-only private studio in central Christchurch. No walk-in rush, no shared stations, and no rushed decisions. Every tattoo is custom-drawn for your anatomy, and every piercing uses autoclave-sterilised medical instruments and implant-grade titanium or solid gold.
+              An appointment-only private studio in central Christchurch. Custom-drawn tattoos, and piercings using autoclave-sterilised instruments with implant-grade titanium or solid gold.
             </p>
 
             <div class="intro-counters-grid">
@@ -4668,207 +4829,6 @@
       </div>
     </div>
 
-    <!-- SECTION 8: RESIDENT ARTISTS (ITEM 4: 3 IN ONE ROW, HEIGHT <= 52SVH) -->
-    <section class="artists-section" id="artists">
-      <div class="container">
-        <div class="artists-header">
-          <span class="eyebrow">Resident Artists</span>
-          <h2 class="section-title">
-            <span class="reveal-line-wrap"><span class="reveal-line">THREE MASTERS OF</span></span>
-            <span class="reveal-line-wrap"><span class="reveal-line">LINE & FORM</span></span>
-          </h2>
-        </div>
-
-        <!-- 3 Columns in One Row on Desktop (>= 1024px); Swipe snap on mobile -->
-        <div class="artists-grid">
-
-          <!-- Artist 1: Caleb Vance -->
-          <div class="artist-card" id="artistCard1">
-            <div class="artist-img-frame clip-reveal-frame">
-              <img 
-                src="assets/images/artist_caleb_vance.webp" 
-                srcset="assets/images/artist_caleb_vance-480w.webp 480w, assets/images/artist_caleb_vance-800w.webp 800w, assets/images/artist_caleb_vance.webp 900w"
-                sizes="(max-width: 768px) 100vw, 380px"
-                alt="Caleb Vance tattooing a client's arm with rotary tattoo machine in private studio" 
-                class="artist-portrait-img"
-                width="800" 
-                height="1000" 
-                loading="lazy"
-                decoding="async"
-              >
-              <img 
-                src="assets/images/artist_1_work-480w.webp" 
-                srcset="assets/images/artist_1_work-480w.webp 480w, assets/images/artist_1_work-800w.webp 800w"
-                sizes="(max-width: 768px) 100vw, 380px"
-                alt="Detailed healed fine line botanical tattoo by Caleb Vance" 
-                class="artist-work-hover-img"
-                width="800" 
-                height="1000" 
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <div class="artist-info">
-              <div>
-                <h3 class="artist-name">Caleb Vance</h3>
-                <div class="artist-discipline">Fine Line & Illustrative Botanical</div>
-                <div class="artist-meta-row">
-                  <span>14 Years Experience</span>
-                  <span style="color: var(--text-body); font-weight: 600; font-size: 16px;">Booking Dec / Jan</span>
-                </div>
-              </div>
-              <div>
-                <a href="#work" class="artist-portfolio-link">View portfolio &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Artist 2: Maren Croft -->
-          <div class="artist-card" id="artistCard2">
-            <div class="artist-img-frame clip-reveal-frame">
-              <img 
-                src="assets/images/artist_maren_croft.webp" 
-                srcset="assets/images/artist_maren_croft-480w.webp 480w, assets/images/artist_maren_croft-800w.webp 800w, assets/images/artist_maren_croft.webp 900w"
-                sizes="(max-width: 768px) 100vw, 380px"
-                alt="Maren Croft in black gloves tattooing bold blackwork on client's arm with precision" 
-                class="artist-portrait-img"
-                width="800" 
-                height="1000" 
-                loading="lazy"
-                decoding="async"
-              >
-              <img 
-                src="assets/images/artist_2_work-480w.webp" 
-                srcset="assets/images/artist_2_work-480w.webp 480w, assets/images/artist_2_work-800w.webp 800w"
-                sizes="(max-width: 768px) 100vw, 380px"
-                alt="Geometric blackwork forearm sleeve healed tattoo by Maren Croft" 
-                class="artist-work-hover-img"
-                width="800" 
-                height="1000" 
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <div class="artist-info">
-              <div>
-                <h3 class="artist-name">Maren Croft</h3>
-                <div class="artist-discipline">Bold Blackwork & Heavy Geometry</div>
-                <div class="artist-meta-row">
-                  <span>9 Years Experience</span>
-                  <span style="color: var(--text-body); font-weight: 600; font-size: 16px;">Booking Dec / Jan</span>
-                </div>
-              </div>
-              <div>
-                <a href="#work" class="artist-portfolio-link">View portfolio &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Artist 3: Elena Thorne -->
-          <div class="artist-card" id="artistCard3">
-            <div class="artist-img-frame clip-reveal-frame">
-              <img 
-                src="assets/images/artist_elena_thorne.webp" 
-                srcset="assets/images/artist_elena_thorne-480w.webp 480w, assets/images/artist_elena_thorne-800w.webp 800w, assets/images/artist_elena_thorne.webp 900w"
-                sizes="(max-width: 768px) 100vw, 380px"
-                alt="Elena Thorne examining precision piercing jewellery at studio workbench" 
-                class="artist-portrait-img"
-                width="800" 
-                height="1000" 
-                loading="lazy"
-                decoding="async"
-              >
-              <img 
-                src="assets/images/artist_elena_thorne_work.webp" 
-                srcset="assets/images/artist_elena_thorne_work-480w.webp 480w, assets/images/artist_elena_thorne_work-800w.webp 800w, assets/images/artist_elena_thorne_work.webp 900w"
-                sizes="(max-width: 768px) 100vw, 380px"
-                alt="Anatomically curated solid gold ear stack piercing by Elena Thorne" 
-                class="artist-work-hover-img"
-                width="800" 
-                height="1000" 
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <div class="artist-info">
-              <div>
-                <h3 class="artist-name">Elena Thorne</h3>
-                <div class="artist-discipline">Ear Curation & Precision Body Piercing</div>
-                <div class="artist-meta-row">
-                  <span>8 Years Experience</span>
-                  <span style="color: var(--text-body); font-weight: 600; font-size: 16px;">Booking Tuesday – Saturday</span>
-                </div>
-              </div>
-              <div>
-                <a href="#work" class="artist-portfolio-link">View portfolio &rarr;</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 9: PROCESS (BONE BACKGROUND, DRAWING LINE & MILESTONES) -->
-    <section class="process-section" id="process">
-      <div class="container">
-        <div class="process-header">
-          <span class="eyebrow">Our methodology</span>
-          <h2 class="section-title">
-            <span class="reveal-line-wrap"><span class="reveal-line">HOW WE WORK</span></span>
-            <span class="reveal-line-wrap"><span class="reveal-line">WITH YOU</span></span>
-          </h2>
-        </div>
-
-        <div class="process-track-wrapper">
-          <div class="process-line-bg"></div>
-          <div class="process-line-fill" id="processLineFill"></div>
-
-          <div class="process-steps-grid">
-            <div class="process-step active" data-step="0">
-              <div class="process-dot-wrapper">
-                <div class="process-dot"></div>
-              </div>
-              <h3 class="process-step-title">1. Consult</h3>
-              <p class="process-step-desc">
-                We sit down in a private room to review placement, scale, reference artwork, and anatomy. Transparent quote provided upfront.
-              </p>
-            </div>
-
-            <div class="process-step" data-step="1">
-              <div class="process-dot-wrapper">
-                <div class="process-dot"></div>
-              </div>
-              <h3 class="process-step-title">2. Design</h3>
-              <p class="process-step-desc">
-                Your artist draws your piece specifically for your body lines. We review and adjust until the stencil is exact.
-              </p>
-            </div>
-
-            <div class="process-step" data-step="2">
-              <div class="process-dot-wrapper">
-                <div class="process-dot"></div>
-              </div>
-              <h3 class="process-step-title">3. The Session</h3>
-              <p class="process-step-desc">
-                Private, hygienic suites. Fresh single-use needles and hospital-grade aseptic setup. Work at your pace with regular breaks.
-              </p>
-            </div>
-
-            <div class="process-step" data-step="3">
-              <div class="process-dot-wrapper">
-                <div class="process-dot"></div>
-              </div>
-              <h3 class="process-step-title">4. Settled Healed</h3>
-              <p class="process-step-desc">
-                Hospital-grade second-skin dressing, comprehensive print aftercare guide, and one complimentary touch-up within six months.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- SECTION 10: PRICING (ITEM 3: PREMIUM PANELS, DOTTED LEADERS & GUIDE SLIDER) -->
     <section class="pricing-section" id="pricing">
       <div class="container">
@@ -5046,187 +5006,14 @@
           </div>
         </div>
 
-        <!-- Block C: Policy Blocks (Unchanged) -->
-        <div class="policies-two-col">
-          <div>
-            <h4 class="policy-title">72-Hour Rescheduling Policy</h4>
-            <p class="policy-desc">
-              Deposits are fully transferable with at least 72 hours written notice. Less than 72 hours notice forfeits the deposit to cover artist studio setup.
-            </p>
-          </div>
-          <div>
-            <h4 class="policy-title">Complimentary Touch-Up Policy</h4>
-            <p class="policy-desc">
-              Every custom tattoo includes one complimentary touch-up within six months once fully settled. Free piercing check-ups and down-sizing assistance anytime.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION 11: REVIEWS (INK BAND, 2 DRIFTING ROWS, BRASS STARS) -->
-    <section class="reviews-section" id="reviews">
-      <div class="container">
-        <div class="reviews-header">
-          <div class="reviews-stars-top">★★★★★</div>
-          <h2 class="section-title reviews-heading"><span id="reviewsCountVal" data-to="4.9">4.9</span> ON GOOGLE &middot; 180+ REVIEWS</h2>
-          <p style="font-size: 20px; color: #F5F5F7; line-height: 1.65; opacity: 1;">
-            Unedited feedback from clients across Christchurch and New Zealand.
+        <!-- Block C: Policy Block (Compacted) -->
+        <div class="policies-compact">
+          <h4 class="policy-title">72-Hour Rescheduling Policy</h4>
+          <p class="policy-desc">
+            Deposits transfer with 72 hours' written notice.
           </p>
         </div>
-      </div>
 
-      <div class="reviews-drift-container">
-        <!-- Row 1: Drift Left -->
-        <div class="reviews-drift-row drift-left">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Caleb designed a delicate silver fern piece for my forearm. The linework is impossibly crisp and healed with zero blowouts."</p>
-            <div class="review-author">Sarah Jenkins · Christchurch</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Elena curated my ear with 14k gold hoops. Completely aseptic technique, gentle placement, and no irritation whatsoever."</p>
-            <div class="review-author">Tania McLeod · Merivale</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Maren's blackwork geometry is world-class. Cleanest private studio in Canterbury. Worth every single dollar."</p>
-            <div class="review-author">Dave Henderson · Lyttelton</div>
-          </div>
-          <!-- Duplicate for seamless loop -->
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Caleb designed a delicate silver fern piece for my forearm. The linework is impossibly crisp and healed with zero blowouts."</p>
-            <div class="review-author">Sarah Jenkins · Christchurch</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Elena curated my ear with 14k gold hoops. Completely aseptic technique, gentle placement, and no irritation whatsoever."</p>
-            <div class="review-author">Tania McLeod · Merivale</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Maren's blackwork geometry is world-class. Cleanest private studio in Canterbury. Worth every single dollar."</p>
-            <div class="review-author">Dave Henderson · Lyttelton</div>
-          </div>
-        </div>
-
-        <!-- Row 2: Drift Right -->
-        <div class="reviews-drift-row drift-right">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Having private suites makes all the difference. Quiet, calm, and respectful. Will never go anywhere else in New Zealand."</p>
-            <div class="review-author">Marcus Bell · Riccarton</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Got my septum pierced with solid gold. Elena explained aftercare so thoroughly. Completely healed in 8 weeks."</p>
-            <div class="review-author">Chloe Zhao · Fendalton</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Traveled down from Wellington specifically for Caleb's botanical fine line. The level of detail on my ribs is breathtaking."</p>
-            <div class="review-author">Jessica Ryan · Wellington</div>
-          </div>
-          <!-- Duplicate for seamless loop -->
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Having private suites makes all the difference. Quiet, calm, and respectful. Will never go anywhere else in New Zealand."</p>
-            <div class="review-author">Marcus Bell · Riccarton</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Got my septum pierced with solid gold. Elena explained aftercare so thoroughly. Completely healed in 8 weeks."</p>
-            <div class="review-author">Chloe Zhao · Fendalton</div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Traveled down from Wellington specifically for Caleb's botanical fine line. The level of detail on my ribs is breathtaking."</p>
-            <div class="review-author">Jessica Ryan · Wellington</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 12: FAQ (SMOOTH ACCORDION, ROTATING CROSS, CRIMSON BAR) -->
-    <section class="faq-section" id="faq">
-      <div class="container">
-        <div class="faq-header">
-          <span class="eyebrow">Studio transparency</span>
-          <h2 class="section-title">
-            <span class="reveal-line-wrap"><span class="reveal-line">FREQUENTLY ASKED</span></span>
-            <span class="reveal-line-wrap"><span class="reveal-line">QUESTIONS</span></span>
-          </h2>
-        </div>
-
-        <div class="faq-accordion">
-          <!-- Item 1 -->
-          <div class="faq-item">
-            <button class="faq-question-btn" aria-expanded="false">
-              <span>How do I book an appointment?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer-panel">
-              <p class="faq-answer-text">
-                Submit an enquiry through our consultation form below with your concept, approximate size, placement, and preferred artist. We review every submission within 48 hours with quotes and dates.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="faq-item">
-            <button class="faq-question-btn" aria-expanded="false">
-              <span>Do you accept walk-in clients?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer-panel">
-              <p class="faq-answer-text">
-                Black Heron is strictly by private appointment. This ensures each client receives the artist's full attention in an unhurried, calm, and private suite.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="faq-item">
-            <button class="faq-question-btn" aria-expanded="false">
-              <span>What jewellery materials do you use for piercings?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer-panel">
-              <p class="faq-answer-text">
-                We pierce exclusively with verified implant-grade ASTM F-136 titanium and nickel-free solid 14k or 18k yellow, rose, and white gold. We never use surgical steel or mystery alloys.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="faq-item">
-            <button class="faq-question-btn" aria-expanded="false">
-              <span>What is your deposit and cancellation policy?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer-panel">
-              <p class="faq-answer-text">
-                A deposit of $100 for smaller sessions or $200 for full day work secures your booking. Deposits are fully transferable to a new date with at least 72 hours written notice.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 5 -->
-          <div class="faq-item">
-            <button class="faq-question-btn" aria-expanded="false">
-              <span>Do you do cover-ups or reworks?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer-panel">
-              <p class="faq-answer-text">
-                Yes. Our artists specialize in blast-overs, rework restorations, and complete cover-ups. We assess existing tattoos during your consultation and advise on realistic aesthetic outcomes.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -5756,7 +5543,459 @@
       </div>
     </section>
 
-  </main>
+    <!-- SECTION 8: RESIDENT ARTISTS (ITEM 4: 3 IN ONE ROW, HEIGHT <= 52SVH) -->
+    <section class="artists-section" id="artists">
+      <div class="container">
+        <div class="artists-header">
+          <span class="eyebrow">Resident Artists</span>
+          <h2 class="section-title">
+            <span class="reveal-line-wrap"><span class="reveal-line">THREE MASTERS OF</span></span>
+            <span class="reveal-line-wrap"><span class="reveal-line">LINE & FORM</span></span>
+          </h2>
+        </div>
+
+        <!-- 3 Columns in One Row on Desktop (>= 1024px); Swipe snap on mobile -->
+        <div class="artists-grid">
+
+          <!-- Artist 1: Caleb Vance -->
+          <div class="artist-card" id="artistCard1">
+            <div class="artist-img-frame clip-reveal-frame">
+              <img 
+                src="assets/images/artist_caleb_vance.webp" 
+                srcset="assets/images/artist_caleb_vance-480w.webp 480w, assets/images/artist_caleb_vance-800w.webp 800w, assets/images/artist_caleb_vance.webp 900w"
+                sizes="(max-width: 768px) 100vw, 380px"
+                alt="Caleb Vance tattooing a client's arm with rotary tattoo machine in private studio" 
+                class="artist-portrait-img"
+                width="800" 
+                height="1000" 
+                loading="lazy"
+                decoding="async"
+              >
+              <img 
+                src="assets/images/artist_1_work-480w.webp" 
+                srcset="assets/images/artist_1_work-480w.webp 480w, assets/images/artist_1_work-800w.webp 800w"
+                sizes="(max-width: 768px) 100vw, 380px"
+                alt="Detailed healed fine line botanical tattoo by Caleb Vance" 
+                class="artist-work-hover-img"
+                width="800" 
+                height="1000" 
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="artist-info">
+              <div>
+                <h3 class="artist-name">Caleb Vance</h3>
+                <div class="artist-discipline">Fine Line & Illustrative Botanical</div>
+                <div class="artist-meta-row">
+                  <span>14 Years Experience</span>
+                  <span style="color: var(--text-body); font-weight: 600; font-size: 16px;">Booking Dec / Jan</span>
+                </div>
+              </div>
+              <div>
+                <a href="#work" class="artist-portfolio-link">View portfolio &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Artist 2: Maren Croft -->
+          <div class="artist-card" id="artistCard2">
+            <div class="artist-img-frame clip-reveal-frame">
+              <img 
+                src="assets/images/artist_maren_croft.webp" 
+                srcset="assets/images/artist_maren_croft-480w.webp 480w, assets/images/artist_maren_croft-800w.webp 800w, assets/images/artist_maren_croft.webp 900w"
+                sizes="(max-width: 768px) 100vw, 380px"
+                alt="Maren Croft in black gloves tattooing bold blackwork on client's arm with precision" 
+                class="artist-portrait-img"
+                width="800" 
+                height="1000" 
+                loading="lazy"
+                decoding="async"
+              >
+              <img 
+                src="assets/images/artist_2_work-480w.webp" 
+                srcset="assets/images/artist_2_work-480w.webp 480w, assets/images/artist_2_work-800w.webp 800w"
+                sizes="(max-width: 768px) 100vw, 380px"
+                alt="Geometric blackwork forearm sleeve healed tattoo by Maren Croft" 
+                class="artist-work-hover-img"
+                width="800" 
+                height="1000" 
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="artist-info">
+              <div>
+                <h3 class="artist-name">Maren Croft</h3>
+                <div class="artist-discipline">Bold Blackwork & Heavy Geometry</div>
+                <div class="artist-meta-row">
+                  <span>9 Years Experience</span>
+                  <span style="color: var(--text-body); font-weight: 600; font-size: 16px;">Booking Dec / Jan</span>
+                </div>
+              </div>
+              <div>
+                <a href="#work" class="artist-portfolio-link">View portfolio &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Artist 3: Elena Thorne -->
+          <div class="artist-card" id="artistCard3">
+            <div class="artist-img-frame clip-reveal-frame">
+              <img 
+                src="assets/images/artist_elena_thorne.webp" 
+                srcset="assets/images/artist_elena_thorne-480w.webp 480w, assets/images/artist_elena_thorne-800w.webp 800w, assets/images/artist_elena_thorne.webp 900w"
+                sizes="(max-width: 768px) 100vw, 380px"
+                alt="Elena Thorne examining precision piercing jewellery at studio workbench" 
+                class="artist-portrait-img"
+                width="800" 
+                height="1000" 
+                loading="lazy"
+                decoding="async"
+              >
+              <img 
+                src="assets/images/artist_elena_thorne_work.webp" 
+                srcset="assets/images/artist_elena_thorne_work-480w.webp 480w, assets/images/artist_elena_thorne_work-800w.webp 800w, assets/images/artist_elena_thorne_work.webp 900w"
+                sizes="(max-width: 768px) 100vw, 380px"
+                alt="Anatomically curated solid gold ear stack piercing by Elena Thorne" 
+                class="artist-work-hover-img"
+                width="800" 
+                height="1000" 
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="artist-info">
+              <div>
+                <h3 class="artist-name">Elena Thorne</h3>
+                <div class="artist-discipline">Ear Curation & Precision Body Piercing</div>
+                <div class="artist-meta-row">
+                  <span>8 Years Experience</span>
+                  <span style="color: var(--text-body); font-weight: 600; font-size: 16px;">Booking Tuesday – Saturday</span>
+                </div>
+              </div>
+              <div>
+                <a href="#work" class="artist-portfolio-link">View portfolio &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: PROCESS (BONE BACKGROUND, DRAWING LINE & MILESTONES) -->
+    <section class="process-section" id="process">
+      <div class="container">
+        <div class="process-header">
+          <span class="eyebrow">Our methodology</span>
+          <h2 class="section-title">
+            <span class="reveal-line-wrap"><span class="reveal-line">HOW WE WORK</span></span>
+            <span class="reveal-line-wrap"><span class="reveal-line">WITH YOU</span></span>
+          </h2>
+        </div>
+
+        <div class="process-track-wrapper">
+          <div class="process-line-bg"></div>
+          <div class="process-line-fill" id="processLineFill"></div>
+
+          <div class="process-steps-grid">
+            <div class="process-step active" data-step="0">
+              <div class="process-dot-wrapper">
+                <div class="process-dot"></div>
+              </div>
+              <h3 class="process-step-title">1. Consult</h3>
+              <p class="process-step-desc">
+                Private chat on placement and size, with a clear upfront quote.
+              </p>
+            </div>
+
+            <div class="process-step" data-step="1">
+              <div class="process-dot-wrapper">
+                <div class="process-dot"></div>
+              </div>
+              <h3 class="process-step-title">2. Design</h3>
+              <p class="process-step-desc">
+                Your artist draws a custom stencil to fit your body.
+              </p>
+            </div>
+
+            <div class="process-step" data-step="2">
+              <div class="process-dot-wrapper">
+                <div class="process-dot"></div>
+              </div>
+              <h3 class="process-step-title">3. The Session</h3>
+              <p class="process-step-desc">
+                Private suite, fresh single-use needles, breaks whenever you need.
+              </p>
+            </div>
+
+            <div class="process-step" data-step="3">
+              <div class="process-dot-wrapper">
+                <div class="process-dot"></div>
+              </div>
+              <h3 class="process-step-title">4. Settled Healed</h3>
+              <p class="process-step-desc">
+                Medical-grade dressing, aftercare guide and a free touch-up within six months.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- SECTION 11: REVIEWS (INK BAND, COMPACT SLIDER, BRASS STARS) -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+        <div class="reviews-header">
+          <h2 class="reviews-compact-line">
+            <span class="reviews-stars-compact" aria-label="5 out of 5 stars">★★★★★</span>
+            <span class="reviews-score-text"><span id="reviewsCountVal" data-to="4.9">4.9</span> on Google</span>
+            <span class="reviews-dot">&middot;</span>
+            <span class="reviews-count-text">180+ reviews</span>
+            <svg class="google-g-badge" viewBox="0 0 24 24" width="20" height="20" aria-label="Google" role="img">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </h2>
+        </div>
+
+        <div class="reviews-slider-wrap">
+          <div class="reviews-slider-track" id="reviewsSliderTrack">
+            <!-- Review 1 -->
+            <div class="review-card">
+              <div class="review-card-top">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-quote">"Caleb was super patient with my tiny forearm fern. Still looks razor sharp now it's healed."</p>
+              </div>
+              <div class="review-footer-row">
+                <div class="review-avatar-frame">
+                  <img 
+                    src="assets/images/avatars/reviewer-1.webp" 
+                    alt="Sarah Jenkins" 
+                    class="review-avatar-img" 
+                    width="42" 
+                    height="42" 
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  >
+                  <div class="review-avatar-fallback avatar-bg-1" style="display: none;" aria-hidden="true">SJ</div>
+                </div>
+                <div class="review-author-meta">
+                  <div class="review-author-name">Sarah Jenkins <span class="review-suburb">&middot; Christchurch</span></div>
+                  <div class="review-date">2 weeks ago</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+              <div class="review-card-top">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-quote">"Elena pierced both my flats with gold studs. Zero swelling, cleanest studio I've ever set foot in."</p>
+              </div>
+              <div class="review-footer-row">
+                <div class="review-avatar-frame">
+                  <img 
+                    src="assets/images/avatars/reviewer-2.webp" 
+                    alt="Tania McLeod" 
+                    class="review-avatar-img" 
+                    width="42" 
+                    height="42" 
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  >
+                  <div class="review-avatar-fallback avatar-bg-2" style="display: none;" aria-hidden="true">TM</div>
+                </div>
+                <div class="review-author-meta">
+                  <div class="review-author-name">Tania McLeod <span class="review-suburb">&middot; Merivale</span></div>
+                  <div class="review-date">1 month ago</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+              <div class="review-card-top">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-quote">"Solid blackwork session. Maren's lines are dialed in. Already booked my next piece."</p>
+              </div>
+              <div class="review-footer-row">
+                <div class="review-avatar-frame">
+                  <img 
+                    src="assets/images/avatars/reviewer-3.webp" 
+                    alt="Dave Henderson" 
+                    class="review-avatar-img" 
+                    width="42" 
+                    height="42" 
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  >
+                  <div class="review-avatar-fallback avatar-bg-3" style="display: none;" aria-hidden="true">DH</div>
+                </div>
+                <div class="review-author-meta">
+                  <div class="review-author-name">Dave Henderson <span class="review-suburb">&middot; Lyttelton</span></div>
+                  <div class="review-date">3 months ago</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="review-card">
+              <div class="review-card-top">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-quote">"Private room meant no distractions or awkward small talk. Really appreciated the calm vibe."</p>
+              </div>
+              <div class="review-footer-row">
+                <div class="review-avatar-frame">
+                  <img 
+                    src="assets/images/avatars/reviewer-4.webp" 
+                    alt="Marcus Bell" 
+                    class="review-avatar-img" 
+                    width="42" 
+                    height="42" 
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  >
+                  <div class="review-avatar-fallback avatar-bg-4" style="display: none;" aria-hidden="true">MB</div>
+                </div>
+                <div class="review-author-meta">
+                  <div class="review-author-name">Marcus Bell <span class="review-suburb">&middot; Riccarton</span></div>
+                  <div class="review-date">4 months ago</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 5 -->
+            <div class="review-card">
+              <div class="review-card-top">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-quote">"Got my daith done here. Hurt way less than expected and Elena's aftercare tips were spot on."</p>
+              </div>
+              <div class="review-footer-row">
+                <div class="review-avatar-frame">
+                  <img 
+                    src="assets/images/avatars/reviewer-5.webp" 
+                    alt="Chloe Zhao" 
+                    class="review-avatar-img" 
+                    width="42" 
+                    height="42" 
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                  >
+                  <div class="review-avatar-fallback avatar-bg-5" style="display: none;" aria-hidden="true">CZ</div>
+                </div>
+                <div class="review-author-meta">
+                  <div class="review-author-name">Chloe Zhao <span class="review-suburb">&middot; Fendalton</span></div>
+                  <div class="review-date">6 months ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls for Desktop & Mobile Assist -->
+          <div class="reviews-nav-controls">
+            <button type="button" class="reviews-nav-btn" id="reviewsPrevBtn" aria-label="Previous review">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="reviews-dots" id="reviewsDots">
+              <button type="button" class="review-dot active" data-index="0" aria-label="Go to review 1"></button>
+              <button type="button" class="review-dot" data-index="1" aria-label="Go to review 2"></button>
+              <button type="button" class="review-dot" data-index="2" aria-label="Go to review 3"></button>
+              <button type="button" class="review-dot" data-index="3" aria-label="Go to review 4"></button>
+              <button type="button" class="review-dot" data-index="4" aria-label="Go to review 5"></button>
+            </div>
+            <button type="button" class="reviews-nav-btn" id="reviewsNextBtn" aria-label="Next review">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: FAQ (SMOOTH ACCORDION, ROTATING CROSS, CRIMSON BAR) -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="faq-header">
+          <span class="eyebrow">Studio transparency</span>
+          <h2 class="section-title">
+            <span class="reveal-line-wrap"><span class="reveal-line">FREQUENTLY ASKED</span></span>
+            <span class="reveal-line-wrap"><span class="reveal-line">QUESTIONS</span></span>
+          </h2>
+        </div>
+
+        <div class="faq-accordion">
+          <!-- Item 1 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>How do I book an appointment?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                Submit an enquiry through our consultation form below with your concept, approximate size, placement, and preferred artist. We review every submission within 48 hours with quotes and dates.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Do you accept walk-in clients?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                Black Heron is strictly by private appointment. This ensures each client receives the artist's full attention in an unhurried, calm, and private suite.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>What jewellery materials do you use for piercings?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                We pierce exclusively with verified implant-grade ASTM F-136 titanium and nickel-free solid 14k or 18k yellow, rose, and white gold. We never use surgical steel or mystery alloys.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>What is your deposit and cancellation policy?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                A deposit of $100 for smaller sessions or $200 for full day work secures your booking. Deposits are fully transferable to a new date with at least 72 hours written notice.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Do you do cover-ups or reworks?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              <p class="faq-answer-text">
+                Yes. Our artists specialize in blast-overs, rework restorations, and complete cover-ups. We assess existing tattoos during your consultation and advise on realistic aesthetic outcomes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      </main>
 
   <!-- Mobile Sticky Consultation Bar -->
   <div class="mobile-booking-bar" id="mobileBookingBar">
@@ -6807,7 +7046,62 @@
       }
     }
 
-    // 14. Reviews 4.9 Animated Count-Up (Robust with 2.5s failsafe)
+        // Reviews Slider Controller
+    function initReviewsSlider() {
+      const track = document.getElementById('reviewsSliderTrack');
+      const prevBtn = document.getElementById('reviewsPrevBtn');
+      const nextBtn = document.getElementById('reviewsNextBtn');
+      const dots = document.querySelectorAll('.review-dot');
+      if (!track) return;
+
+      const getScrollAmount = () => {
+        const firstCard = track.querySelector('.review-card');
+        return firstCard ? firstCard.offsetWidth + 24 : 320;
+      };
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const idx = parseInt(dot.getAttribute('data-index') || '0', 10);
+          const cards = track.querySelectorAll('.review-card');
+          if (cards[idx]) {
+            cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+          }
+        });
+      });
+
+      const updateActiveDot = () => {
+        const cards = track.querySelectorAll('.review-card');
+        const scrollLeft = track.scrollLeft;
+        let activeIdx = 0;
+        let minDiff = Infinity;
+        cards.forEach((card, i) => {
+          const diff = Math.abs(card.offsetLeft - track.offsetLeft - scrollLeft);
+          if (diff < minDiff) {
+            minDiff = diff;
+            activeIdx = i;
+          }
+        });
+        dots.forEach((d, i) => {
+          d.classList.toggle('active', i === activeIdx);
+        });
+      };
+
+      track.addEventListener('scroll', updateActiveDot, { passive: true });
+    }
+
+// 14. Reviews 4.9 Animated Count-Up (Robust with 2.5s failsafe)
     function initReviewsCounter() {
       const countEl = document.getElementById('reviewsCountVal');
       if (!countEl) return;
@@ -7192,9 +7486,15 @@
       if (!bar) return;
 
       if ('IntersectionObserver' in window && (bookingSec || footerSec)) {
+        let bookingVisible = false;
+        let footerVisible = false;
+
         const observer = new IntersectionObserver((entries) => {
-          const isOverlapping = entries.some(entry => entry.isIntersecting);
-          if (isOverlapping) {
+          entries.forEach(entry => {
+            if (entry.target === bookingSec) bookingVisible = entry.isIntersecting;
+            if (entry.target === footerSec) footerVisible = entry.isIntersecting;
+          });
+          if (bookingVisible || footerVisible) {
             bar.classList.add('is-hidden');
           } else {
             bar.classList.remove('is-hidden');
@@ -7252,6 +7552,7 @@
       initProcessLine();
       initPricing();
       initReviewsCounter();
+      initReviewsSlider();
       initFAQ();
       initBookingWizard();
       initMobileMenu();
