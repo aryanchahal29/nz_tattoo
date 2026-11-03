@@ -2,7 +2,7 @@
 <html lang="en-NZ" style="background-color: #0E0C0B;">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Black Heron Tattoo & Piercing | Christchurch</title>
   <meta name="description" content="Custom fine art tattoo and precision body piercing studio in central Christchurch, New Zealand. By private appointment. Est. 2012.">
   <meta name="keywords" content="tattoo Christchurch, piercing Christchurch, fine line tattoo, body piercing NZ, implant grade jewellery, custom tattoo artist">
@@ -126,6 +126,7 @@
       overflow-x: clip;
       width: 100%;
       max-width: 100%;
+      overscroll-behavior-y: none;
     }
 
     body {
@@ -1010,9 +1011,9 @@
         }
       }
 
-      /* Prevent sticky booking bar from obscuring footer content */
+      /* Safety on notched phones: dark color covers home indicator */
       .site-footer {
-        padding-bottom: calc(65px + 2rem) !important;
+        padding-bottom: env(safe-area-inset-bottom, 0px) !important;
       }
 
       section[id], footer[id] {
@@ -3780,11 +3781,7 @@
       }
     }
 
-    @media (max-width: 1023px) {
-      body {
-        padding-bottom: 72px;
-      }
-    }
+
 
     /* ==========================================================================
        SECTION 14: FOOTER (ITEM 5: INK BAND, LIVE NZ HOURS, BRASS READY, NO CREDIT)
@@ -3792,7 +3789,7 @@
     .site-footer {
       background-color: var(--ink);
       color: var(--ivory);
-      padding: var(--section-pad) 0 0;
+      padding: var(--section-pad) 0 env(safe-area-inset-bottom, 0px);
       position: relative;
       border-top: 1px solid rgba(184, 151, 90, 0.35);
     }
@@ -7546,7 +7543,7 @@
           } else {
             bar.classList.remove('is-hidden');
           }
-        }, { threshold: 0.08 });
+        }, { threshold: 0 });
 
         if (bookingSec) observer.observe(bookingSec);
         if (footerSec) observer.observe(footerSec);
