@@ -1904,11 +1904,12 @@
       display: flex;
       flex-direction: column;
       background-color: var(--ivory);
-      flex-grow: 1;
       box-sizing: border-box;
+      justify-content: flex-start;
     }
 
     .artist-name {
+      font-family: var(--font-heading);
       font-size: clamp(1.8rem, 2.3vw, 2.35rem);
       line-height: 1;
       text-transform: uppercase;
@@ -1917,7 +1918,9 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      min-height: 1.8rem;
+      min-height: 2.35rem;
+      display: flex;
+      align-items: center;
     }
 
     .artist-discipline {
@@ -1926,53 +1929,56 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--crimson) !important;
-      margin: 0 0 12px 0;
+      margin: 0;
       white-space: nowrap;
       line-height: 1.2;
       min-height: 22px;
-    }
-
-    .artist-meta-row {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: nowrap !important;
+    }
+
+    .artist-divider {
+      width: 100%;
+      height: 1px;
+      background-color: var(--line);
+      margin: 16px 0;
+      border: none;
+      flex-shrink: 0;
+    }
+
+    .artist-exp-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
       white-space: nowrap;
-      font-size: 16px !important;
-      color: var(--text-body);
-      border-top: 1px solid var(--line);
-      padding-top: 16px;
-      margin: 0 0 20px 0;
-      min-height: 22px;
-      gap: 0.5rem;
-    }
-
-    .artist-meta-row span {
-      font-size: 16px !important;
-      color: var(--text-body) !important;
-      white-space: nowrap;
-    }
-
-    .artist-status {
-      font-weight: 600 !important;
-      color: var(--text-body) !important;
-    }
-
-    .artist-portfolio-link {
-      font-size: 16px !important;
-      font-weight: 600 !important;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
       margin: 0;
-      transition: color 0.3s;
+      padding: 0;
+      min-height: 36px;
     }
 
-    .artist-portfolio-link:hover {
-      color: var(--crimson);
+    .artist-exp-fig {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      line-height: 1;
+      color: var(--ink); /* #0E0C0B */
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 767px) {
+      .artist-exp-fig {
+        font-size: 32px;
+      }
+    }
+
+    .artist-exp-label {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-body); /* #2B2824 */
+      white-space: nowrap;
+      line-height: 1;
     }
 
     /* ==========================================================================
@@ -4091,8 +4097,6 @@
 
     /* 3. Small Meta Text and Captions (minimum 16px, weight 500 where uppercase) */
     .intro-img-caption,
-    .artist-meta-row,
-    .artist-portfolio-link,
     .pricing-deposit-chip,
     .pricing-tier-tag,
     .piercing-upgrade-note,
@@ -4123,7 +4127,6 @@
 
     /* Meta colors on light backgrounds */
     .intro-img-caption,
-    .artist-meta-row,
     .counter-label,
     .piercing-upgrade-note,
     .guide-result-meta,
@@ -4145,8 +4148,6 @@
 
     /* Uppercase meta text weight 500 */
     .intro-img-caption,
-    .artist-meta-row,
-    .artist-portfolio-link,
     .pricing-deposit-chip,
     .pricing-tier-tag,
     .slider-stop-btn,
@@ -4224,10 +4225,7 @@
       opacity: 1 !important;
     }
 
-    .artist-meta-row span {
-      font-size: 16px !important;
-      color: var(--text-body) !important;
-    }
+
 
     /* 5. Forms: Input & Textarea 18px, Placeholder #5C5750 (~6.6:1), Field Labels 16px weight 600 */
     .form-input,
@@ -4252,16 +4250,8 @@
     }
 
     /* 6. Layout Safeguards (Step 3: Keep layouts intact) */
-    .artist-meta-row {
-      flex-wrap: nowrap !important;
-      gap: 0.5rem !important;
-    }
-
-    @media (max-width: 480px) {
-      .artist-meta-row {
-        flex-wrap: wrap !important;
-        gap: 0.35rem 0.65rem !important;
-      }
+    .artist-exp-row {
+      white-space: nowrap !important;
     }
 
     .guide-slider-labels {
@@ -5635,11 +5625,11 @@
             <div class="artist-info">
               <h3 class="artist-name">Caleb Vance</h3>
               <div class="artist-discipline">FINE LINE &amp; BOTANICAL</div>
-              <div class="artist-meta-row">
-                <span>14 Years Experience</span>
-                <span class="artist-status">Booking Dec / Jan</span>
+              <div class="artist-divider"></div>
+              <div class="artist-exp-row">
+                <span class="artist-exp-fig">14</span>
+                <span class="artist-exp-label">YEARS OF EXPERIENCE</span>
               </div>
-              <a href="#work" class="artist-portfolio-link">VIEW PORTFOLIO &rarr;</a>
             </div>
           </div>
 
@@ -5672,11 +5662,11 @@
             <div class="artist-info">
               <h3 class="artist-name">Maren Croft</h3>
               <div class="artist-discipline">BLACKWORK &amp; GEOMETRY</div>
-              <div class="artist-meta-row">
-                <span>9 Years Experience</span>
-                <span class="artist-status">Booking Dec / Jan</span>
+              <div class="artist-divider"></div>
+              <div class="artist-exp-row">
+                <span class="artist-exp-fig">9</span>
+                <span class="artist-exp-label">YEARS OF EXPERIENCE</span>
               </div>
-              <a href="#work" class="artist-portfolio-link">VIEW PORTFOLIO &rarr;</a>
             </div>
           </div>
 
@@ -5709,11 +5699,11 @@
             <div class="artist-info">
               <h3 class="artist-name">Elena Thorne</h3>
               <div class="artist-discipline">EAR CURATION &amp; PIERCING</div>
-              <div class="artist-meta-row">
-                <span>8 Years Experience</span>
-                <span class="artist-status">Booking Tue &ndash; Sat</span>
+              <div class="artist-divider"></div>
+              <div class="artist-exp-row">
+                <span class="artist-exp-fig">8</span>
+                <span class="artist-exp-label">YEARS OF EXPERIENCE</span>
               </div>
-              <a href="#work" class="artist-portfolio-link">VIEW PORTFOLIO &rarr;</a>
             </div>
           </div>
 
